@@ -11,143 +11,188 @@ const textoResultado = document.querySelector(".texto-resultado");
 const perguntas = [
     {
         enunciado:
-            "A inteligência artificial está cada vez mais presente na escola, no trabalho e no nosso dia a dia. Na sua opinião, como devemos usar a IA?",
+            "Quando você percebe que está passando por um período de muito estresse, o que costuma fazer?",
 
         alternativas: [
             {
                 texto:
-                    "Usar a IA como uma ferramenta para aprender, pesquisar e desenvolver novas ideias.",
+                    "Tento continuar normalmente e deixo para pensar nisso depois.",
 
                 afirmacao:
-                    "Você tem um perfil inovador e acredita que a tecnologia pode ser uma grande aliada para ampliar o conhecimento."
+                    "Você pode estar acostumado(a) a seguir em frente mesmo quando está sobrecarregado(a). Perceber seus limites e dar espaço para o descanso pode ser um passo importante."
             },
 
             {
                 texto:
-                    "Usar a IA com limites e sempre verificar as informações antes de confiar nelas.",
+                    "Procuro entender o que estou sentindo e faço algo que me ajude a relaxar.",
 
                 afirmacao:
-                    "Você é cuidadoso e responsável, valorizando a tecnologia sem deixar de lado o pensamento crítico."
+                    "Você demonstra uma boa percepção das próprias emoções e entende que reconhecer o estresse é importante para cuidar de si."
             }
         ]
     },
 
     {
         enunciado:
-            "A inteligência artificial pode realizar tarefas que antes eram feitas exclusivamente por pessoas. Como você acredita que devemos lidar com essa mudança no mercado de trabalho?",
+            "Quando algo está incomodando você emocionalmente, como costuma lidar com seus sentimentos?",
 
         alternativas: [
             {
                 texto:
-                    "Investir na educação e preparar as pessoas para trabalhar junto com as novas tecnologias.",
+                    "Prefiro guardar para mim e tentar resolver tudo sozinho(a).",
 
                 afirmacao:
-                    "Você pensa no futuro e acredita que conhecimento e adaptação são fundamentais para enfrentar as mudanças tecnológicas."
+                    "Você parece valorizar sua independência, mas também pode se beneficiar de compartilhar o que sente com alguém de confiança quando estiver difícil."
             },
 
             {
                 texto:
-                    "Criar regras para garantir que a tecnologia não substitua pessoas de forma injusta.",
+                    "Converso com alguém de confiança ou procuro uma maneira saudável de expressar o que sinto.",
 
                 afirmacao:
-                    "Você valoriza a responsabilidade social e acredita que o avanço tecnológico deve respeitar os direitos e as oportunidades das pessoas."
+                    "Você reconhece que expressar sentimentos pode aliviar o peso emocional e fortalecer os relacionamentos."
             }
         ]
     },
 
     {
         enunciado:
-            "A IA consegue analisar grandes quantidades de informações e ajudar em decisões importantes. Você confiaria em uma inteligência artificial para tomar decisões que afetam a vida das pessoas?",
+            "Como você costuma cuidar de si depois de um dia cansativo?",
 
         alternativas: [
             {
                 texto:
-                    "Sim, desde que exista supervisão humana e regras claras para controlar suas decisões.",
+                    "Continuo minhas atividades sem reservar muito tempo para descansar.",
 
                 afirmacao:
-                    "Você acredita no potencial da tecnologia, mas entende que a participação humana continua sendo essencial."
+                    "Sua rotina pode estar bastante ocupada. Lembre-se de que descanso não é perda de tempo: ele também faz parte do cuidado com a saúde mental."
             },
 
             {
                 texto:
-                    "Não totalmente, pois decisões importantes devem continuar sendo responsabilidade dos seres humanos.",
+                    "Procuro descansar, ouvir música, conversar, praticar um hobby ou fazer algo que me faça bem.",
 
                 afirmacao:
-                    "Você é prudente e acredita que a tecnologia deve servir às pessoas, sem substituir completamente o julgamento humano."
+                    "Você entende a importância de reservar momentos para si e encontra maneiras positivas de recarregar as energias."
             }
         ]
     },
 
     {
         enunciado:
-            "Imagine que uma IA possa criar imagens, músicas, textos e vídeos em poucos segundos. Como você vê essa capacidade?",
+            "Quando você comete um erro, como costuma falar consigo mesmo(a)?",
 
         alternativas: [
             {
                 texto:
-                    "Como uma oportunidade para estimular a criatividade e ajudar artistas e criadores.",
+                    "Sou bastante crítico(a) comigo e fico pensando no erro por muito tempo.",
 
                 afirmacao:
-                    "Você possui uma visão criativa e vê a inteligência artificial como uma ferramenta capaz de abrir novas possibilidades."
+                    "Você pode estar cobrando muito de si. Aprender com os erros é importante, mas se tratar com compreensão também faz parte do autocuidado."
             },
 
             {
                 texto:
-                    "Como algo que precisa de regras para proteger os direitos e o trabalho dos criadores.",
+                    "Tento entender o que aconteceu, aprender com o erro e seguir em frente.",
 
                 afirmacao:
-                    "Você valoriza a criatividade humana e acredita que a inovação deve acontecer respeitando a autoria e a propriedade intelectual."
+                    "Você demonstra autocompaixão e entende que cometer erros faz parte do processo de aprendizado."
             }
         ]
     },
 
     {
         enunciado:
-            "A inteligência artificial também pode ser usada para combater problemas ambientais, como o desperdício de energia e as mudanças climáticas. Qual seria a melhor maneira de utilizá-la?",
+            "Qual destas atitudes mais combina com a forma como você estabelece seus limites?",
 
         alternativas: [
             {
                 texto:
-                    "Usar a IA para encontrar soluções sustentáveis e tornar o consumo de recursos mais eficiente.",
+                    "Tenho dificuldade para dizer não porque não quero decepcionar outras pessoas.",
 
                 afirmacao:
-                    "Você tem uma visão sustentável e acredita que a tecnologia pode ajudar a construir um futuro melhor para o planeta."
+                    "Você demonstra consideração pelas pessoas, mas aprender a estabelecer limites pode ajudar a preservar sua energia e seu bem-estar."
             },
 
             {
                 texto:
-                    "Priorizar tecnologias que causem menos impactos ambientais durante sua criação e funcionamento.",
+                    "Procuro dizer não quando algo ultrapassa meus limites, mesmo que seja difícil.",
 
                 afirmacao:
-                    "Você pensa de forma consciente e entende que o desenvolvimento tecnológico também precisa considerar seus impactos no meio ambiente."
+                    "Você reconhece que estabelecer limites é uma forma importante de respeitar suas próprias necessidades."
             }
         ]
     },
 
     {
         enunciado:
-            "Com o avanço da IA, dados pessoais podem ser utilizados para criar experiências cada vez mais personalizadas. O que deve ser prioridade nesse cenário?",
+            "Como está sua relação com o sono e o descanso?",
 
         alternativas: [
             {
                 texto:
-                    "Proteger a privacidade das pessoas e permitir que elas escolham como seus dados serão utilizados.",
+                    "Frequentemente durmo pouco ou deixo o descanso de lado por causa de outras atividades.",
 
                 afirmacao:
-                    "Você valoriza a privacidade e acredita que as pessoas devem ter controle sobre suas próprias informações."
+                    "Sua rotina pode estar deixando pouco espaço para o descanso. Ter momentos adequados de sono e recuperação é importante para o bem-estar físico e emocional."
             },
 
             {
                 texto:
-                    "Utilizar os dados para melhorar os serviços, mas seguindo leis e regras de segurança.",
+                    "Procuro manter uma rotina que permita dormir e descansar adequadamente.",
 
                 afirmacao:
-                    "Você busca equilíbrio entre inovação e segurança, acreditando que a tecnologia pode avançar com responsabilidade."
+                    "Você reconhece que descanso e sono fazem parte de uma rotina de autocuidado e podem contribuir para o equilíbrio emocional."
+            }
+        ]
+    },
+
+    {
+        enunciado:
+            "Se uma pessoa próxima estivesse passando por um momento emocional difícil, o que você faria?",
+
+        alternativas: [
+            {
+                texto:
+                    "Tentaria resolver o problema por ela e dar uma solução imediatamente.",
+
+                afirmacao:
+                    "Você demonstra preocupação com as pessoas, mas às vezes ouvir sem julgar pode ser mais importante do que encontrar uma solução imediata."
+            },
+
+            {
+                texto:
+                    "Escutaria com atenção, demonstraria apoio e incentivaria a pessoa a buscar ajuda se necessário.",
+
+                afirmacao:
+                    "Você demonstra empatia e entende que oferecer escuta e apoio pode fazer uma grande diferença para alguém que está passando por dificuldades."
+            }
+        ]
+    },
+
+    {
+        enunciado:
+            "Quando percebe que não está conseguindo lidar sozinho(a) com uma situação emocional, o que você faria?",
+
+        alternativas: [
+            {
+                texto:
+                    "Continuaria tentando resolver tudo sozinho(a), mesmo estando muito sobrecarregado(a).",
+
+                afirmacao:
+                    "Você pode ter o hábito de enfrentar tudo por conta própria. Lembre-se de que pedir ajuda não é sinal de fraqueza, mas uma atitude de cuidado consigo mesmo(a)."
+            },
+
+            {
+                texto:
+                    "Procuraria alguém de confiança ou um profissional que pudesse me ajudar.",
+
+                afirmacao:
+                    "Você entende que buscar apoio é uma atitude de responsabilidade e cuidado com a própria saúde mental."
             }
         ]
     }
 ];
-
 
 // ===============================
 // VARIÁVEIS DO QUIZ
@@ -169,10 +214,11 @@ function mostraPergunta() {
         return;
     }
 
-    perguntaAtual = perguntas[atual];
+    const perguntaAtual = perguntas[atual];
 
     // Atualiza a pergunta
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaPerguntas.textContent =
+        perguntaAtual.enunciado;
 
     // Limpa alternativas anteriores
     caixaAlternativas.innerHTML = "";
@@ -191,14 +237,18 @@ function mostraPergunta() {
 
 function atualizarContador() {
 
-    let contador = document.querySelector(".contador-pergunta");
+    let contador =
+        document.querySelector(".contador-pergunta");
 
     // Cria o contador apenas uma vez
     if (!contador) {
 
-        contador = document.createElement("div");
+        contador =
+            document.createElement("div");
 
-        contador.classList.add("contador-pergunta");
+        contador.classList.add(
+            "contador-pergunta"
+        );
 
         contador.style.marginBottom = "15px";
         contador.style.color = "#2BDEFD";
@@ -223,7 +273,13 @@ function atualizarContador() {
 
 function mostraAlternativas() {
 
-    for (const alternativa of perguntaAtual.alternativas) {
+    const perguntaAtual =
+        perguntas[atual];
+
+    for (
+        const alternativa
+        of perguntaAtual.alternativas
+    ) {
 
         const botaoAlternativas =
             document.createElement("button");
@@ -247,9 +303,11 @@ function mostraAlternativas() {
 // RESPOSTA SELECIONADA
 // ===============================
 
-function respostaSelecionada(opcaoSelecionada) {
+function respostaSelecionada(
+    opcaoSelecionada
+) {
 
-    // Adiciona a afirmação ao resultado final
+    // Adiciona a reflexão ao resultado final
     historiaFinal +=
         opcaoSelecionada.afirmacao + " ";
 
@@ -269,24 +327,40 @@ function mostraResultado() {
 
     // Esconde o contador
     const contador =
-        document.querySelector(".contador-pergunta");
+        document.querySelector(
+            ".contador-pergunta"
+        );
 
     if (contador) {
         contador.style.display = "none";
     }
 
-    // Muda o título da pergunta
+    // Muda o título
     caixaPerguntas.textContent =
-        "✨ Olha só o que podemos afirmar sobre você!";
+        "🌱 Olha só o que suas respostas mostram sobre você!";
 
     // Mostra o resultado
-    textoResultado.textContent =
-        historiaFinal;
+    textoResultado.innerHTML = `
+        <p>${historiaFinal}</p>
+
+        <p style="margin-top: 20px;">
+            💙 <strong>
+            Lembre-se: cuidar da saúde mental é um processo.
+            </strong>
+        </p>
+
+        <p style="margin-top: 10px;">
+            Este quiz é apenas uma reflexão sobre seus hábitos
+            e sentimentos. Ele não substitui uma avaliação de
+            um profissional de saúde mental.
+        </p>
+    `;
 
     // Exibe a caixa de resultado
-    caixaResultado.style.display = "block";
+    caixaResultado.style.display =
+        "block";
 
-    // Remove os botões
+    // Remove os botões anteriores
     caixaAlternativas.innerHTML = "";
 
     // Cria botão de reiniciar
@@ -301,7 +375,11 @@ function mostraResultado() {
 function criarBotaoReiniciar() {
 
     // Evita criar dois botões
-    if (document.querySelector(".botao-reiniciar")) {
+    if (
+        document.querySelector(
+            ".botao-reiniciar"
+        )
+    ) {
         return;
     }
 
@@ -336,7 +414,8 @@ function reiniciarQuiz() {
     historiaFinal = "";
 
     // Esconde resultado
-    caixaResultado.style.display = "none";
+    caixaResultado.style.display =
+        "none";
 
     // Limpa resultado
     textoResultado.textContent = "";
