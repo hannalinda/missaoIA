@@ -4,429 +4,215 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-// ===============================
+const barraProgresso =
+    document.querySelector(".progresso");
+
+const porcentagem =
+    document.querySelector(".porcentagem");
+
+
+// =========================================
 // PERGUNTAS
-// ===============================
+// =========================================
 
 const perguntas = [
+
     {
         enunciado:
-            "Quando você percebe que está passando por um período de muito estresse, o que costuma fazer?",
+            "Por que a saúde pública é importante para a sociedade?",
 
         alternativas: [
+
             {
                 texto:
-                    "Tento continuar normalmente e deixo para pensar nisso depois.",
+                    "Porque busca garantir que todas as pessoas tenham acesso aos cuidados de saúde.",
 
                 afirmacao:
-                    "Você pode estar acostumado(a) a seguir em frente mesmo quando está sobrecarregado(a). Perceber seus limites e dar espaço para o descanso pode ser um passo importante."
+                    "Você reconhece que a saúde pública tem um papel fundamental na busca por acesso à saúde para toda a população."
             },
 
             {
                 texto:
-                    "Procuro entender o que estou sentindo e faço algo que me ajude a relaxar.",
+                    "Porque ajuda a prevenir doenças e melhorar a qualidade de vida da população.",
 
                 afirmacao:
-                    "Você demonstra uma boa percepção das próprias emoções e entende que reconhecer o estresse é importante para cuidar de si."
+                    "Você percebe que saúde pública não significa apenas tratar doenças, mas também prevenir problemas e promover qualidade de vida."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Quando algo está incomodando você emocionalmente, como costuma lidar com seus sentimentos?",
+            "Qual é uma das principais funções do Sistema Único de Saúde (SUS)?",
 
         alternativas: [
+
             {
                 texto:
-                    "Prefiro guardar para mim e tentar resolver tudo sozinho(a).",
+                    "Oferecer serviços de saúde à população, incluindo prevenção, atendimento e tratamento.",
 
                 afirmacao:
-                    "Você parece valorizar sua independência, mas também pode se beneficiar de compartilhar o que sente com alguém de confiança quando estiver difícil."
+                    "Você reconhece a importância do SUS como parte fundamental da saúde pública brasileira."
             },
 
             {
                 texto:
-                    "Converso com alguém de confiança ou procuro uma maneira saudável de expressar o que sinto.",
+                    "Atuar somente quando uma pessoa já está doente.",
 
                 afirmacao:
-                    "Você reconhece que expressar sentimentos pode aliviar o peso emocional e fortalecer os relacionamentos."
+                    "Você reconhece a importância do tratamento, mas o SUS também atua na prevenção, vacinação, acompanhamento e promoção da saúde."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Como você costuma cuidar de si depois de um dia cansativo?",
+            "Por que a vacinação é importante para a saúde pública?",
 
         alternativas: [
+
             {
                 texto:
-                    "Continuo minhas atividades sem reservar muito tempo para descansar.",
+                    "Porque ajuda a proteger as pessoas e a reduzir a circulação de algumas doenças.",
 
                 afirmacao:
-                    "Sua rotina pode estar bastante ocupada. Lembre-se de que descanso não é perda de tempo: ele também faz parte do cuidado com a saúde mental."
+                    "Você entende que a vacinação é uma das principais estratégias de prevenção e proteção coletiva."
             },
 
             {
                 texto:
-                    "Procuro descansar, ouvir música, conversar, praticar um hobby ou fazer algo que me faça bem.",
+                    "Porque protege somente a pessoa que recebe a vacina.",
 
                 afirmacao:
-                    "Você entende a importância de reservar momentos para si e encontra maneiras positivas de recarregar as energias."
+                    "A proteção individual é importante, mas a vacinação também pode contribuir para reduzir a transmissão de doenças na comunidade."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Quando você comete um erro, como costuma falar consigo mesmo(a)?",
+            "Como o saneamento básico está relacionado à saúde?",
 
         alternativas: [
+
             {
                 texto:
-                    "Sou bastante crítico(a) comigo e fico pensando no erro por muito tempo.",
+                    "Água tratada, coleta de esgoto e manejo adequado de resíduos ajudam a prevenir doenças.",
 
                 afirmacao:
-                    "Você pode estar cobrando muito de si. Aprender com os erros é importante, mas se tratar com compreensão também faz parte do autocuidado."
+                    "Você entende que as condições de saneamento têm relação direta com a prevenção de doenças e com a qualidade de vida."
             },
 
             {
                 texto:
-                    "Tento entender o que aconteceu, aprender com o erro e seguir em frente.",
+                    "O saneamento serve principalmente para deixar as cidades mais organizadas.",
 
                 afirmacao:
-                    "Você demonstra autocompaixão e entende que cometer erros faz parte do processo de aprendizado."
+                    "Você reconhece a importância da organização das cidades, mas o saneamento também é essencial para proteger a saúde da população."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Qual destas atitudes mais combina com a forma como você estabelece seus limites?",
+            "Qual atitude pode contribuir para a prevenção de doenças?",
 
         alternativas: [
+
             {
                 texto:
-                    "Tenho dificuldade para dizer não porque não quero decepcionar outras pessoas.",
+                    "Manter hábitos de higiene, vacinação atualizada e procurar orientação de saúde quando necessário.",
 
                 afirmacao:
-                    "Você demonstra consideração pelas pessoas, mas aprender a estabelecer limites pode ajudar a preservar sua energia e seu bem-estar."
+                    "Você reconhece que atitudes simples podem contribuir para prevenir doenças e proteger a comunidade."
             },
 
             {
                 texto:
-                    "Procuro dizer não quando algo ultrapassa meus limites, mesmo que seja difícil.",
+                    "Procurar atendimento somente quando os sintomas estiverem muito graves.",
 
                 afirmacao:
-                    "Você reconhece que estabelecer limites é uma forma importante de respeitar suas próprias necessidades."
+                    "Você valoriza o atendimento médico, mas a prevenção e a busca adequada por orientação também podem evitar complicações."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Como está sua relação com o sono e o descanso?",
+            "Por que a atenção primária à saúde é importante?",
 
         alternativas: [
+
             {
                 texto:
-                    "Frequentemente durmo pouco ou deixo o descanso de lado por causa de outras atividades.",
+                    "Porque é uma importante porta de entrada para o sistema de saúde e trabalha com prevenção e acompanhamento.",
 
                 afirmacao:
-                    "Sua rotina pode estar deixando pouco espaço para o descanso. Ter momentos adequados de sono e recuperação é importante para o bem-estar físico e emocional."
+                    "Você entende que o cuidado com a saúde começa também pela prevenção e pelo acompanhamento próximo da população."
             },
 
             {
                 texto:
-                    "Procuro manter uma rotina que permita dormir e descansar adequadamente.",
+                    "Porque serve principalmente para encaminhar todas as pessoas para hospitais.",
 
                 afirmacao:
-                    "Você reconhece que descanso e sono fazem parte de uma rotina de autocuidado e podem contribuir para o equilíbrio emocional."
+                    "Os encaminhamentos são importantes quando necessários, mas a atenção primária também realiza prevenção, acompanhamento e diversos cuidados."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Se uma pessoa próxima estivesse passando por um momento emocional difícil, o que você faria?",
+            "Qual é a relação entre alimentação saudável e saúde pública?",
 
         alternativas: [
+
             {
                 texto:
-                    "Tentaria resolver o problema por ela e dar uma solução imediatamente.",
+                    "Uma alimentação adequada pode ajudar na prevenção de doenças e melhorar a qualidade de vida.",
 
                 afirmacao:
-                    "Você demonstra preocupação com as pessoas, mas às vezes ouvir sem julgar pode ser mais importante do que encontrar uma solução imediata."
+                    "Você reconhece que a alimentação é um dos fatores que podem contribuir para a promoção da saúde e prevenção de doenças."
             },
 
             {
                 texto:
-                    "Escutaria com atenção, demonstraria apoio e incentivaria a pessoa a buscar ajuda se necessário.",
+                    "A alimentação não possui nenhuma relação com a saúde coletiva.",
 
                 afirmacao:
-                    "Você demonstra empatia e entende que oferecer escuta e apoio pode fazer uma grande diferença para alguém que está passando por dificuldades."
+                    "As escolhas alimentares são individuais, mas fatores sociais, econômicos e ambientais também influenciam a alimentação e a saúde da população."
             }
+
         ]
     },
 
+
     {
         enunciado:
-            "Quando percebe que não está conseguindo lidar sozinho(a) com uma situação emocional, o que você faria?",
+            "O que cada pessoa pode fazer para contribuir com a saúde pública?",
 
         alternativas: [
+
             {
                 texto:
-                    "Continuaria tentando resolver tudo sozinho(a), mesmo estando muito sobrecarregado(a).",
+                    "Cuidar da própria saúde, prevenir doenças e utilizar os serviços de saúde de forma consciente.",
 
                 afirmacao:
-                    "Você pode ter o hábito de enfrentar tudo por conta própria. Lembre-se de que pedir ajuda não é sinal de fraqueza, mas uma atitude de cuidado consigo mesmo(a)."
+                    "Você entende que a saúde pública é uma responsabilidade compartilhada entre governos, profissionais e sociedade."
             },
 
             {
                 texto:
-                    "Procuraria alguém de confiança ou um profissional que pudesse me ajudar.",
-
-                afirmacao:
-                    "Você entende que buscar apoio é uma atitude de responsabilidade e cuidado com a própria saúde mental."
-            }
-        ]
-    }
-];
-
-// ===============================
-// VARIÁVEIS DO QUIZ
-// ===============================
-
-let atual = 0;
-let historiaFinal = "";
-
-
-// ===============================
-// MOSTRAR PERGUNTA
-// ===============================
-
-function mostraPergunta() {
-
-    // Verifica se o quiz terminou
-    if (atual >= perguntas.length) {
-        mostraResultado();
-        return;
-    }
-
-    const perguntaAtual = perguntas[atual];
-
-    // Atualiza a pergunta
-    caixaPerguntas.textContent =
-        perguntaAtual.enunciado;
-
-    // Limpa alternativas anteriores
-    caixaAlternativas.innerHTML = "";
-
-    // Atualiza contador
-    atualizarContador();
-
-    // Cria os botões
-    mostraAlternativas();
-}
-
-
-// ===============================
-// CONTADOR
-// ===============================
-
-function atualizarContador() {
-
-    let contador =
-        document.querySelector(".contador-pergunta");
-
-    // Cria o contador apenas uma vez
-    if (!contador) {
-
-        contador =
-            document.createElement("div");
-
-        contador.classList.add(
-            "contador-pergunta"
-        );
-
-        contador.style.marginBottom = "15px";
-        contador.style.color = "#2BDEFD";
-        contador.style.fontSize = "0.85rem";
-        contador.style.fontWeight = "700";
-        contador.style.letterSpacing = "1px";
-
-        caixaPerguntas.parentNode.insertBefore(
-            contador,
-            caixaPerguntas
-        );
-    }
-
-    contador.textContent =
-        `PERGUNTA ${atual + 1} DE ${perguntas.length}`;
-}
-
-
-// ===============================
-// MOSTRAR ALTERNATIVAS
-// ===============================
-
-function mostraAlternativas() {
-
-    const perguntaAtual =
-        perguntas[atual];
-
-    for (
-        const alternativa
-        of perguntaAtual.alternativas
-    ) {
-
-        const botaoAlternativas =
-            document.createElement("button");
-
-        botaoAlternativas.textContent =
-            alternativa.texto;
-
-        botaoAlternativas.addEventListener(
-            "click",
-            () => respostaSelecionada(alternativa)
-        );
-
-        caixaAlternativas.appendChild(
-            botaoAlternativas
-        );
-    }
-}
-
-
-// ===============================
-// RESPOSTA SELECIONADA
-// ===============================
-
-function respostaSelecionada(
-    opcaoSelecionada
-) {
-
-    // Adiciona a reflexão ao resultado final
-    historiaFinal +=
-        opcaoSelecionada.afirmacao + " ";
-
-    // Vai para a próxima pergunta
-    atual++;
-
-    // Mostra a próxima pergunta
-    mostraPergunta();
-}
-
-
-// ===============================
-// MOSTRAR RESULTADO
-// ===============================
-
-function mostraResultado() {
-
-    // Esconde o contador
-    const contador =
-        document.querySelector(
-            ".contador-pergunta"
-        );
-
-    if (contador) {
-        contador.style.display = "none";
-    }
-
-    // Muda o título
-    caixaPerguntas.textContent =
-        "🌱 Olha só o que suas respostas mostram sobre você!";
-
-    // Mostra o resultado
-    textoResultado.innerHTML = `
-        <p>${historiaFinal}</p>
-
-        <p style="margin-top: 20px;">
-            💙 <strong>
-            Lembre-se: cuidar da saúde mental é um processo.
-            </strong>
-        </p>
-
-        <p style="margin-top: 10px;">
-            Este quiz é apenas uma reflexão sobre seus hábitos
-            e sentimentos. Ele não substitui uma avaliação de
-            um profissional de saúde mental.
-        </p>
-    `;
-
-    // Exibe a caixa de resultado
-    caixaResultado.style.display =
-        "block";
-
-    // Remove os botões anteriores
-    caixaAlternativas.innerHTML = "";
-
-    // Cria botão de reiniciar
-    criarBotaoReiniciar();
-}
-
-
-// ===============================
-// BOTÃO REINICIAR
-// ===============================
-
-function criarBotaoReiniciar() {
-
-    // Evita criar dois botões
-    if (
-        document.querySelector(
-            ".botao-reiniciar"
-        )
-    ) {
-        return;
-    }
-
-    const botaoReiniciar =
-        document.createElement("button");
-
-    botaoReiniciar.textContent =
-        "🔄 Fazer o quiz novamente";
-
-    botaoReiniciar.classList.add(
-        "botao-reiniciar"
-    );
-
-    botaoReiniciar.addEventListener(
-        "click",
-        reiniciarQuiz
-    );
-
-    caixaAlternativas.appendChild(
-        botaoReiniciar
-    );
-}
-
-
-// ===============================
-// REINICIAR QUIZ
-// ===============================
-
-function reiniciarQuiz() {
-
-    atual = 0;
-    historiaFinal = "";
-
-    // Esconde resultado
-    caixaResultado.style.display =
-        "none";
-
-    // Limpa resultado
-    textoResultado.textContent = "";
-
-    // Mostra novamente o quiz
-    mostraPergunta();
-}
-
-
-// ===============================
-// INICIAR QUIZ
-// ===============================
-
-mostraPergunta();
+                    "

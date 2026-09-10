@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Quiz interativo sobre saúde mental, autocuidado e bem-estar emocional."
+        content="Quiz interativo sobre saúde pública, prevenção, vacinação, SUS e qualidade de vida."
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    <title>Você cuida da sua saúde mental?</title>
+    <title>Quiz de Saúde Pública</title>
 </head>
 
 <body>
@@ -19,39 +27,98 @@
     <main class="caixa-principal">
 
         <header class="cabecalho">
-            <span class="tag">🧠 SAÚDE MENTAL</span>
 
-            <h1>Você cuida da sua saúde mental?</h1>
+            <div class="icone-principal">
+                🏥
+            </div>
+
+            <span class="tag">
+                SAÚDE PÚBLICA
+            </span>
+
+            <h1>
+                Você conhece a importância da saúde pública?
+            </h1>
 
             <p>
-                Responda às perguntas e reflita sobre seus hábitos,
-                emoções e formas de cuidar do seu bem-estar.
+                Responda às perguntas, reflita sobre suas escolhas
+                e descubra como pequenas atitudes podem contribuir
+                para uma sociedade mais saudável.
             </p>
+
         </header>
 
-        <section class="caixa-jogo" aria-label="Quiz de saúde mental">
 
-            <div class="caixa-perguntas"></div>
+        <section
+            class="caixa-jogo"
+            aria-label="Quiz de Saúde Pública"
+        >
 
-            <div class="caixa-alternativas"></div>
+            <div class="progresso-container">
 
-            <div class="caixa-resultado" aria-live="polite">
-                <h2>🌱 Seu resultado</h2>
+                <div class="progresso-info">
+                    <span class="contador-pergunta">
+                        PERGUNTA 1 DE 8
+                    </span>
+
+                    <span class="porcentagem">
+                        0%
+                    </span>
+                </div>
+
+                <div class="barra-progresso">
+                    <div class="progresso"></div>
+                </div>
+
+            </div>
+
+
+            <div class="caixa-perguntas">
+                Carregando pergunta...
+            </div>
+
+
+            <div class="caixa-alternativas">
+            </div>
+
+
+            <div
+                class="caixa-resultado"
+                aria-live="polite"
+            >
+
+                <div class="icone-resultado">
+                    🌎
+                </div>
+
+                <h2>
+                    Seu resultado
+                </h2>
 
                 <p class="texto-resultado"></p>
+
             </div>
 
         </section>
 
+
         <footer class="rodape">
+
             <p>
-                Cuidar da mente também é cuidar de si. 💙
+                💙 Cuidar da saúde é também cuidar da comunidade.
             </p>
+
+            <span>
+                Projeto educativo sobre Saúde Pública
+            </span>
+
         </footer>
 
     </main>
 
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
