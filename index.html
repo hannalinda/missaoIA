@@ -14,17 +14,19 @@
         content="Quiz interativo sobre saúde pública, prevenção, vacinação, SUS e qualidade de vida."
     >
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+    <link rel="stylesheet" href="style.css">
 
-    <title>Quiz de Saúde Pública</title>
+    <title>Saúde em Foco | Quiz de Saúde Pública</title>
 </head>
 
 <body>
 
+    <div class="fundo-blur blur-1"></div>
+    <div class="fundo-blur blur-2"></div>
+
     <main class="caixa-principal">
+
+        <!-- CABEÇALHO -->
 
         <header class="cabecalho">
 
@@ -33,54 +35,57 @@
             </div>
 
             <span class="tag">
-                SAÚDE PÚBLICA
+                SAÚDE EM FOCO
             </span>
 
             <h1>
-                Você conhece a importância da saúde pública?
+                Você entende de
+                <span>Saúde Pública?</span>
             </h1>
 
             <p>
-                Responda às perguntas, reflita sobre suas escolhas
-                e descubra como pequenas atitudes podem contribuir
-                para uma sociedade mais saudável.
+                Teste seus conhecimentos sobre prevenção,
+                vacinação, SUS, saneamento e cuidados que
+                ajudam a construir uma sociedade mais saudável.
             </p>
 
         </header>
 
 
+        <!-- QUIZ -->
+
         <section
             class="caixa-jogo"
-            aria-label="Quiz de Saúde Pública"
+            aria-label="Quiz de saúde pública"
         >
 
-            <div class="progresso-container">
+            <div class="topo-quiz">
 
-                <div class="progresso-info">
-                    <span class="contador-pergunta">
-                        PERGUNTA 1 DE 8
-                    </span>
+                <div class="contador-pergunta"></div>
 
-                    <span class="porcentagem">
-                        0%
-                    </span>
-                </div>
-
-                <div class="barra-progresso">
-                    <div class="progresso"></div>
+                <div class="porcentagem">
+                    <span id="porcentagem">0%</span>
                 </div>
 
             </div>
 
 
-            <div class="caixa-perguntas">
-                Carregando pergunta...
+            <div class="barra-progresso">
+
+                <div
+                    class="progresso"
+                    id="progresso"
+                ></div>
+
             </div>
 
 
-            <div class="caixa-alternativas">
-            </div>
+            <div class="caixa-perguntas"></div>
 
+            <div class="caixa-alternativas"></div>
+
+
+            <!-- RESULTADO -->
 
             <div
                 class="caixa-resultado"
@@ -102,15 +107,17 @@
         </section>
 
 
+        <!-- RODAPÉ -->
+
         <footer class="rodape">
 
-            <p>
-                💙 Cuidar da saúde é também cuidar da comunidade.
-            </p>
-
             <span>
-                Projeto educativo sobre Saúde Pública
+                💙
             </span>
+
+            <p>
+                Cuidar da saúde é também cuidar da comunidade.
+            </p>
 
         </footer>
 
