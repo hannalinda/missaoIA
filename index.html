@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,36 +15,78 @@
     <main class="caixa-principal">
 
         <header class="cabecalho">
+
             <span class="tag">QUIZ DE SAÚDE</span>
 
             <h1>Você conhece sobre saúde?</h1>
 
             <p>
-                Responda às perguntas e teste seus conhecimentos
-                sobre hábitos saudáveis e cuidados com a saúde.
+                Responda às perguntas e descubra o quanto
+                você sabe sobre hábitos saudáveis e cuidados
+                com a saúde.
             </p>
+
         </header>
+
 
         <section class="caixa-jogo">
 
             <div class="contador-pergunta">
-                Pergunta <span id="numero-pergunta">1</span> de
+                Pergunta
+                <span id="numero-pergunta">1</span>
+                de
                 <span id="total-perguntas">10</span>
             </div>
+
 
             <div class="caixa-perguntas" id="pergunta">
                 Carregando pergunta...
             </div>
 
+
             <div class="caixa-alternativas" id="alternativas">
             </div>
 
-            <div class="caixa-resultado" id="resultado">
+
+            <!-- EXPLICAÇÃO DA RESPOSTA -->
+
+            <div
+                class="caixa-explicacao"
+                id="explicacao"
+                style="display: none;"
+            >
+
+                <h2 id="titulo-explicacao">
+                    Resultado
+                </h2>
+
+                <p id="texto-explicacao">
+                </p>
+
+                <button
+                    class="botao-reiniciar"
+                    id="botao-proxima"
+                    type="button"
+                >
+                    Próxima pergunta
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO FINAL -->
+
+            <div
+                class="caixa-resultado"
+                id="resultado"
+            >
 
                 <h2>Quiz finalizado! 🎉</h2>
 
-                <p class="texto-resultado" id="texto-resultado">
-                    Você terminou o quiz.
+                <p
+                    class="texto-resultado"
+                    id="texto-resultado"
+                >
                 </p>
 
                 <button
@@ -58,8 +101,13 @@
 
         </section>
 
+
         <footer class="rodape">
-            <p>Cuide da sua saúde todos os dias! 💚</p>
+
+            <p>
+                Cuide da sua saúde todos os dias! 💚
+            </p>
+
         </footer>
 
     </main>
@@ -67,120 +115,214 @@
 
     <script>
 
+        /*
+        ==================================================
+        PERGUNTAS
+        ==================================================
+
+        Cada pergunta possui DUAS respostas corretas.
+
+        O campo "respostas" contém os índices
+        das alternativas corretas.
+
+        Exemplo:
+
+        respostas: [0, 2]
+
+        significa que as alternativas 1 e 3
+        estão corretas.
+        */
+
+
         const perguntas = [
 
             {
-                pergunta: "Qual vitamina é produzida pelo corpo com a exposição ao sol?",
+                pergunta:
+                    "Quais hábitos ajudam a manter uma boa saúde?",
+
                 alternativas: [
-                    "Vitamina A",
-                    "Vitamina C",
-                    "Vitamina D",
-                    "Vitamina B12"
+                    "Praticar atividade física",
+                    "Fumar regularmente",
+                    "Ter uma alimentação equilibrada",
+                    "Dormir apenas 2 horas por noite"
                 ],
-                resposta: 2
+
+                respostas: [0, 2],
+
+                explicacao:
+                    "Praticar atividade física e manter uma alimentação equilibrada são hábitos que contribuem para a saúde. O sedentarismo, o tabagismo e a falta de sono podem prejudicar o organismo."
             },
 
-            {
-                pergunta: "Qual destes hábitos contribui para uma alimentação saudável?",
-                alternativas: [
-                    "Consumir frutas e verduras",
-                    "Pular todas as refeições",
-                    "Consumir apenas alimentos ultraprocessados",
-                    "Beber somente refrigerantes"
-                ],
-                resposta: 0
-            },
 
             {
-                pergunta: "Por que beber água é importante para o organismo?",
+                pergunta:
+                    "Quais atitudes ajudam na prevenção de doenças?",
+
                 alternativas: [
-                    "Apenas para matar a sede",
-                    "Para ajudar no funcionamento do organismo",
-                    "Para substituir todas as refeições",
-                    "Para evitar qualquer doença"
+                    "Lavar as mãos corretamente",
+                    "Manter as vacinas em dia",
+                    "Evitar beber água",
+                    "Nunca procurar atendimento médico"
                 ],
-                resposta: 1
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Lavar as mãos ajuda a reduzir a transmissão de diversos microrganismos, enquanto a vacinação ajuda a proteger contra várias doenças."
             },
 
-            {
-                pergunta: "Qual destes é um exemplo de atividade física?",
-                alternativas: [
-                    "Caminhar",
-                    "Dormir",
-                    "Assistir televisão",
-                    "Ficar sentado"
-                ],
-                resposta: 0
-            },
 
             {
-                pergunta: "Qual destes hábitos pode ajudar na qualidade do sono?",
+                pergunta:
+                    "Quais alimentos podem fazer parte de uma alimentação saudável?",
+
+                alternativas: [
+                    "Frutas",
+                    "Verduras e legumes",
+                    "Refrigerantes em excesso",
+                    "Doces em todas as refeições"
+                ],
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Frutas, verduras e legumes fornecem nutrientes importantes. Refrigerantes e doces podem ser consumidos ocasionalmente, mas o consumo excessivo não é recomendado."
+            },
+
+
+            {
+                pergunta:
+                    "Quais atitudes podem ajudar na qualidade do sono?",
+
                 alternativas: [
                     "Manter horários regulares para dormir",
-                    "Usar telas a noite inteira",
-                    "Tomar grandes quantidades de café antes de dormir",
-                    "Dormir em horários completamente diferentes todos os dias"
+                    "Criar um ambiente tranquilo para dormir",
+                    "Tomar muito café antes de dormir",
+                    "Usar telas durante toda a madrugada"
                 ],
-                resposta: 0
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Manter horários regulares e um ambiente tranquilo pode favorecer o sono. Cafeína em excesso e uso prolongado de telas durante a noite podem atrapalhar o descanso."
             },
 
-            {
-                pergunta: "Qual destes alimentos é uma fonte de fibras?",
-                alternativas: [
-                    "Feijão",
-                    "Refrigerante",
-                    "Óleo de cozinha",
-                    "Açúcar"
-                ],
-                resposta: 0
-            },
 
             {
-                pergunta: "Qual é uma atitude importante para prevenir a transmissão de algumas doenças infecciosas?",
+                pergunta:
+                    "Por que a água é importante para o organismo?",
+
                 alternativas: [
-                    "Lavar as mãos adequadamente",
-                    "Nunca beber água",
-                    "Evitar todas as frutas",
-                    "Não dormir"
+                    "Ajuda na hidratação",
+                    "Participa de várias funções do organismo",
+                    "Substitui completamente todos os alimentos",
+                    "Impede qualquer doença"
                 ],
-                resposta: 0
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "A água é fundamental para a hidratação e participa de diversas funções do organismo. Porém, ela não substitui uma alimentação adequada nem impede todas as doenças."
             },
 
+
             {
-                pergunta: "Qual profissional é especializado no cuidado dos dentes e da boca?",
+                pergunta:
+                    "Quais atividades podem contribuir para uma vida mais ativa?",
+
                 alternativas: [
-                    "Cardiologista",
+                    "Caminhar",
+                    "Andar de bicicleta",
+                    "Passar o dia inteiro sentado",
+                    "Evitar qualquer movimento"
+                ],
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Caminhar e andar de bicicleta são exemplos de atividades físicas. Manter-se ativo regularmente pode trazer benefícios para a saúde."
+            },
+
+
+            {
+                pergunta:
+                    "Quais profissionais podem participar dos cuidados com a saúde?",
+
+                alternativas: [
+                    "Médico",
                     "Dentista",
-                    "Oftalmologista",
-                    "Nutricionista"
+                    "Somente pessoas sem formação na área",
+                    "Nenhum profissional"
                 ],
-                resposta: 1
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Médicos e dentistas são profissionais de saúde, cada um com áreas específicas de atuação. O cuidado com a saúde pode envolver diferentes profissionais."
             },
 
+
             {
-                pergunta: "Qual destes hábitos está associado a benefícios para a saúde?",
+                pergunta:
+                    "Quais atitudes podem ajudar a cuidar da saúde bucal?",
+
                 alternativas: [
-                    "Praticar atividade física regularmente",
+                    "Escovar os dentes regularmente",
+                    "Usar fio dental",
+                    "Nunca escovar os dentes",
+                    "Consumir açúcar sem nenhum cuidado"
+                ],
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Escovar os dentes e usar fio dental ajudam na higiene bucal. Também é importante realizar acompanhamento com um dentista."
+            },
+
+
+            {
+                pergunta:
+                    "Quais nutrientes são importantes para o funcionamento do organismo?",
+
+                alternativas: [
+                    "Vitaminas",
+                    "Proteínas",
+                    "Somente açúcar",
+                    "Somente refrigerante"
+                ],
+
+                respostas: [0, 1],
+
+                explicacao:
+                    "Vitaminas e proteínas exercem funções importantes no organismo. Uma alimentação variada ajuda a fornecer diferentes nutrientes necessários ao corpo."
+            },
+
+
+            {
+                pergunta:
+                    "Quais atitudes podem contribuir para uma vida saudável?",
+
+                alternativas: [
+                    "Ter uma alimentação equilibrada",
+                    "Praticar atividades físicas",
                     "Fumar diariamente",
-                    "Dormir sempre poucas horas",
-                    "Não beber água"
+                    "Dormir sempre muito pouco"
                 ],
-                resposta: 0
-            },
 
-            {
-                pergunta: "Por que é importante realizar consultas médicas quando necessário?",
-                alternativas: [
-                    "Para acompanhar a saúde e investigar problemas quando necessário",
-                    "Porque toda consulta garante que nunca teremos doenças",
-                    "Somente para receber medicamentos",
-                    "Apenas quando estamos internados"
-                ],
-                resposta: 0
+                respostas: [0, 1],
+
+                explicacao:
+                    "Uma alimentação equilibrada e a prática regular de atividades físicas podem contribuir para a saúde. O tabagismo e a privação frequente de sono podem prejudicar a saúde."
             }
 
         ];
 
+
+        /*
+        ==================================================
+        VARIÁVEIS
+        ==================================================
+        */
 
         let perguntaAtual = 0;
 
@@ -199,6 +341,18 @@
         const elementoTotalPerguntas =
             document.getElementById("total-perguntas");
 
+        const elementoExplicacao =
+            document.getElementById("explicacao");
+
+        const tituloExplicacao =
+            document.getElementById("titulo-explicacao");
+
+        const textoExplicacao =
+            document.getElementById("texto-explicacao");
+
+        const botaoProxima =
+            document.getElementById("botao-proxima");
+
         const elementoResultado =
             document.getElementById("resultado");
 
@@ -216,17 +370,35 @@
             perguntas.length;
 
 
+        /*
+        ==================================================
+        CARREGAR PERGUNTA
+        ==================================================
+        */
+
         function carregarPergunta() {
 
-            const pergunta = perguntas[perguntaAtual];
+            const pergunta =
+                perguntas[perguntaAtual];
+
 
             elementoNumeroPergunta.textContent =
                 perguntaAtual + 1;
 
+
             elementoPergunta.textContent =
                 pergunta.pergunta;
 
+
             elementoAlternativas.innerHTML = "";
+
+
+            elementoExplicacao.style.display =
+                "none";
+
+
+            elementoAlternativas.style.display =
+                "flex";
 
 
             pergunta.alternativas.forEach(
@@ -235,9 +407,12 @@
                     const botao =
                         document.createElement("button");
 
+
                     botao.type = "button";
 
-                    botao.textContent = alternativa;
+
+                    botao.textContent =
+                        alternativa;
 
 
                     botao.addEventListener(
@@ -252,8 +427,15 @@
 
                 }
             );
+
         }
 
+
+        /*
+        ==================================================
+        VERIFICAR RESPOSTA
+        ==================================================
+        */
 
         function verificarResposta(indiceEscolhido) {
 
@@ -261,40 +443,169 @@
                 perguntas[perguntaAtual];
 
 
-            if (
-                indiceEscolhido === pergunta.resposta
-            ) {
+            const estaCorreta =
+                pergunta.respostas.includes(
+                    indiceEscolhido
+                );
+
+
+            /*
+            Se a resposta estiver entre as duas
+            respostas corretas, o jogador ganha ponto.
+            */
+
+            if (estaCorreta) {
 
                 pontuacao++;
+
+                tituloExplicacao.textContent =
+                    "✅ Resposta correta!";
+
+            } else {
+
+                tituloExplicacao.textContent =
+                    "❌ Resposta incorreta!";
 
             }
 
 
-            perguntaAtual++;
+            /*
+            Desabilita todos os botões para impedir
+            que o jogador responda novamente.
+            */
 
+            const botoes =
+                elementoAlternativas.querySelectorAll(
+                    "button"
+                );
+
+
+            botoes.forEach(
+                (botao, indice) => {
+
+                    botao.disabled = true;
+
+
+                    /*
+                    Mostra visualmente quais eram
+                    as duas respostas corretas.
+                    */
+
+                    if (
+                        pergunta.respostas.includes(indice)
+                    ) {
+
+                        botao.style.background =
+                            "#dff8ed";
+
+                        botao.style.borderColor =
+                            "#22a06b";
+
+                    }
+
+
+                    /*
+                    Destaca a resposta errada escolhida.
+                    */
+
+                    if (
+                        indice === indiceEscolhido &&
+                        !estaCorreta
+                    ) {
+
+                        botao.style.background =
+                            "#ffe5e5";
+
+                        botao.style.borderColor =
+                            "#e05252";
+
+                    }
+
+                }
+            );
+
+
+            /*
+            Mostra a explicação.
+            */
+
+            textoExplicacao.textContent =
+                pergunta.explicacao;
+
+
+            elementoExplicacao.style.display =
+                "block";
+
+
+            /*
+            Altera o texto do botão na última pergunta.
+            */
 
             if (
-                perguntaAtual < perguntas.length
+                perguntaAtual === perguntas.length - 1
             ) {
 
-                carregarPergunta();
+                botaoProxima.textContent =
+                    "Ver resultado";
 
             } else {
 
-                mostrarResultado();
+                botaoProxima.textContent =
+                    "Próxima pergunta";
 
             }
 
         }
 
 
+        /*
+        ==================================================
+        PRÓXIMA PERGUNTA
+        ==================================================
+        */
+
+        botaoProxima.addEventListener(
+            "click",
+            () => {
+
+                perguntaAtual++;
+
+
+                if (
+                    perguntaAtual < perguntas.length
+                ) {
+
+                    carregarPergunta();
+
+                } else {
+
+                    mostrarResultado();
+
+                }
+
+            }
+        );
+
+
+        /*
+        ==================================================
+        RESULTADO FINAL
+        ==================================================
+        */
+
         function mostrarResultado() {
 
             elementoPergunta.style.display =
                 "none";
 
+
             elementoAlternativas.style.display =
                 "none";
+
+
+            elementoExplicacao.style.display =
+                "none";
+
 
             contador.style.display =
                 "none";
@@ -316,27 +627,28 @@
             if (porcentagem === 100) {
 
                 mensagem =
-                    "Excelente! Você acertou todas as perguntas! 🏆";
+                    "🏆 Excelente! Você acertou todas as perguntas!";
 
             } else if (porcentagem >= 70) {
 
                 mensagem =
-                    "Muito bem! Você demonstrou bons conhecimentos sobre saúde! 👏";
+                    "👏 Muito bem! Você demonstrou bons conhecimentos sobre saúde.";
 
             } else if (porcentagem >= 50) {
 
                 mensagem =
-                    "Bom trabalho! Continue aprendendo sobre saúde. 💚";
+                    "💚 Bom trabalho! Continue aprendendo sobre saúde.";
 
             } else {
 
                 mensagem =
-                    "Continue estudando! Conhecimento também é uma forma de cuidar da saúde. 📚";
+                    "📚 Continue estudando! Conhecimento também é uma forma de cuidar da saúde.";
 
             }
 
 
             elementoTextoResultado.innerHTML = `
+
                 ${mensagem}
 
                 <br><br>
@@ -351,46 +663,59 @@
 
                 Aproveitamento:
                 <strong>${porcentagem}%</strong>
+
             `;
 
         }
 
 
-        function reiniciarQuiz() {
-
-            perguntaAtual = 0;
-
-            pontuacao = 0;
-
-
-            elementoPergunta.style.display =
-                "block";
-
-            elementoAlternativas.style.display =
-                "flex";
-
-            contador.style.display =
-                "block";
-
-
-            elementoResultado.style.display =
-                "none";
-
-
-            carregarPergunta();
-
-        }
-
+        /*
+        ==================================================
+        REINICIAR
+        ==================================================
+        */
 
         botaoReiniciar.addEventListener(
             "click",
-            reiniciarQuiz
+            () => {
+
+                perguntaAtual = 0;
+
+                pontuacao = 0;
+
+
+                elementoResultado.style.display =
+                    "none";
+
+
+                elementoPergunta.style.display =
+                    "block";
+
+
+                elementoAlternativas.style.display =
+                    "flex";
+
+
+                contador.style.display =
+                    "block";
+
+
+                carregarPergunta();
+
+            }
         );
 
+
+        /*
+        ==================================================
+        INICIAR QUIZ
+        ==================================================
+        */
 
         carregarPergunta();
 
     </script>
 
 </body>
+
 </html>
