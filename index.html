@@ -1,393 +1,396 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Quiz interativo sobre saúde pública, prevenção, vacinação, SUS e qualidade de vida."
-    >
+    <title>Quiz sobre Saúde</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <title>Saúde em Foco | Quiz de Saúde P<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Quiz interativo sobre saúde pública, prevenção, vacinação, SUS e qualidade de vida."
-    >
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>Saúde em Foco | Quiz de Saúde Pública</title>
 </head>
 
 <body>
 
-    <div class="fundo-blur blur-1"></div>
-    <div class="fundo-blur blur-2"></div>
-
     <main class="caixa-principal">
 
-        <!-- CABEÇALHO -->
-
         <header class="cabecalho">
+            <span class="tag">QUIZ DE SAÚDE</span>
 
-            <div class="icone-principal">
-                🏥
-            </div>
-
-            <span class="tag">
-                SAÚDE EM FOCO
-            </span>
-
-            <h1>
-                Você entende de
-                <span>Saúde Pública?</span>
-            </h1>
+            <h1>Você conhece sobre saúde?</h1>
 
             <p>
-                Teste seus conhecimentos sobre prevenção,
-                vacinação, SUS, saneamento e cuidados que
-                ajudam a construir uma sociedade mais saudável.
+                Responda às perguntas e teste seus conhecimentos
+                sobre hábitos saudáveis e cuidados com a saúde.
             </p>
-
         </header>
 
+        <section class="caixa-jogo">
 
-        <!-- QUIZ -->
-
-        <section
-            class="caixa-jogo"
-            aria-label="Quiz de saúde pública"
-        >
-
-            <div class="topo-quiz">
-
-                <div class="contador-pergunta"></div>
-
-                <div class="porcentagem">
-                    <span id="porcentagem">0%</span>
-                </div>
-
+            <div class="contador-pergunta">
+                Pergunta <span id="numero-pergunta">1</span> de
+                <span id="total-perguntas">10</span>
             </div>
 
-
-            <div class="barra-progresso">
-
-                <div
-                    class="progresso"
-                    id="progresso"
-                ></div>
-
+            <div class="caixa-perguntas" id="pergunta">
+                Carregando pergunta...
             </div>
 
-
-            <div class="caixa-perguntas"></div>
-
-            <div class="caixa-alternativas"></div>
-
-
-            <!-- RESULTADO -->
-
-            <div
-                class="caixa-resultado"
-                aria-live="polite"
-            >
-
-                <div class="icone-resultado">
-                    🌎
-                </div>
-
-                <h2>
-                    Seu resultado
-                </h2>
-
-                <p class="texto-resultado"></p>
-
-            </div><!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Quiz interativo sobre saúde pública, prevenção, vacinação, SUS e qualidade de vida."
-    >
-
-    <link rel="stylesheet" href="style.css">
-
-    <title>Saúde em Foco | Quiz de Saúde Pública</title>
-</head>
-
-<body>
-
-    <div class="fundo-blur blur-1"></div>
-    <div class="fundo-blur blur-2"></div>
-
-    <main class="caixa-principal">
-
-        <!-- CABEÇALHO -->
-
-        <header class="cabecalho">
-
-            <div class="icone-principal">
-                🏥
+            <div class="caixa-alternativas" id="alternativas">
             </div>
 
-            <span class="tag">
-                SAÚDE EM FOCO
-            </span>
+            <div class="caixa-resultado" id="resultado">
 
-            <h1>
-                Você entende de
-                <span>Saúde Pública?</span>
-            </h1>
+                <h2>Quiz finalizado! 🎉</h2>
 
-            <p>
-                Teste seus conhecimentos sobre prevenção,
-                vacinação, SUS, saneamento e cuidados que
-                ajudam a construir uma sociedade mais saudável.
-            </p>
+                <p class="texto-resultado" id="texto-resultado">
+                    Você terminou o quiz.
+                </p>
 
-        </header>
-
-
-        <!-- QUIZ -->
-
-        <section
-            class="caixa-jogo"
-            aria-label="Quiz de saúde pública"
-        >
-
-            <div class="topo-quiz">
-
-                <div class="contador-pergunta"></div>
-
-                <div class="porcentagem">
-                    <span id="porcentagem">0%</span>
-                </div>
-
-            </div>
-
-
-            <div class="barra-progresso">
-
-                <div
-                    class="progresso"
-                    id="progresso"
-                ></div>
-
-            </div>
-
-
-            <div class="caixa-perguntas"></div>
-
-            <div class="caixa-alternativas"></div>
-
-
-            <!-- RESULTADO -->
-
-            <div
-                class="caixa-resultado"
-                aria-live="polite"
-            >
-
-                <div class="icone-resultado">
-                    🌎
-                </div>
-
-                <h2>
-                    Seu resultado
-                </h2>
-
-                <p class="texto-resultado"></p>
+                <button
+                    class="botao-reiniciar"
+                    id="botao-reiniciar"
+                    type="button"
+                >
+                    Jogar novamente
+                </button>
 
             </div>
 
         </section>
 
-
-        <!-- RODAPÉ -->
-
         <footer class="rodape">
-
-            <span>
-                💙
-            </span>
-
-            <p>
-                Cuidar da saúde é também cuidar da comunidade.
-            </p>
-
+            <p>Cuide da sua saúde todos os dias! 💚</p>
         </footer>
 
     </main>
 
 
-    <script src="script.js"></script>
+    <script>
+
+        const perguntas = [
+
+            {
+                pergunta: "Qual vitamina é produzida pelo corpo com a exposição ao sol?",
+                alternativas: [
+                    "Vitamina A",
+                    "Vitamina C",
+                    "Vitamina D",
+                    "Vitamina B12"
+                ],
+                resposta: 2
+            },
+
+            {
+                pergunta: "Qual destes hábitos contribui para uma alimentação saudável?",
+                alternativas: [
+                    "Consumir frutas e verduras",
+                    "Pular todas as refeições",
+                    "Consumir apenas alimentos ultraprocessados",
+                    "Beber somente refrigerantes"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Por que beber água é importante para o organismo?",
+                alternativas: [
+                    "Apenas para matar a sede",
+                    "Para ajudar no funcionamento do organismo",
+                    "Para substituir todas as refeições",
+                    "Para evitar qualquer doença"
+                ],
+                resposta: 1
+            },
+
+            {
+                pergunta: "Qual destes é um exemplo de atividade física?",
+                alternativas: [
+                    "Caminhar",
+                    "Dormir",
+                    "Assistir televisão",
+                    "Ficar sentado"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Qual destes hábitos pode ajudar na qualidade do sono?",
+                alternativas: [
+                    "Manter horários regulares para dormir",
+                    "Usar telas a noite inteira",
+                    "Tomar grandes quantidades de café antes de dormir",
+                    "Dormir em horários completamente diferentes todos os dias"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Qual destes alimentos é uma fonte de fibras?",
+                alternativas: [
+                    "Feijão",
+                    "Refrigerante",
+                    "Óleo de cozinha",
+                    "Açúcar"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Qual é uma atitude importante para prevenir a transmissão de algumas doenças infecciosas?",
+                alternativas: [
+                    "Lavar as mãos adequadamente",
+                    "Nunca beber água",
+                    "Evitar todas as frutas",
+                    "Não dormir"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Qual profissional é especializado no cuidado dos dentes e da boca?",
+                alternativas: [
+                    "Cardiologista",
+                    "Dentista",
+                    "Oftalmologista",
+                    "Nutricionista"
+                ],
+                resposta: 1
+            },
+
+            {
+                pergunta: "Qual destes hábitos está associado a benefícios para a saúde?",
+                alternativas: [
+                    "Praticar atividade física regularmente",
+                    "Fumar diariamente",
+                    "Dormir sempre poucas horas",
+                    "Não beber água"
+                ],
+                resposta: 0
+            },
+
+            {
+                pergunta: "Por que é importante realizar consultas médicas quando necessário?",
+                alternativas: [
+                    "Para acompanhar a saúde e investigar problemas quando necessário",
+                    "Porque toda consulta garante que nunca teremos doenças",
+                    "Somente para receber medicamentos",
+                    "Apenas quando estamos internados"
+                ],
+                resposta: 0
+            }
+
+        ];
+
+
+        let perguntaAtual = 0;
+
+        let pontuacao = 0;
+
+
+        const elementoPergunta =
+            document.getElementById("pergunta");
+
+        const elementoAlternativas =
+            document.getElementById("alternativas");
+
+        const elementoNumeroPergunta =
+            document.getElementById("numero-pergunta");
+
+        const elementoTotalPerguntas =
+            document.getElementById("total-perguntas");
+
+        const elementoResultado =
+            document.getElementById("resultado");
+
+        const elementoTextoResultado =
+            document.getElementById("texto-resultado");
+
+        const botaoReiniciar =
+            document.getElementById("botao-reiniciar");
+
+        const contador =
+            document.querySelector(".contador-pergunta");
+
+
+        elementoTotalPerguntas.textContent =
+            perguntas.length;
+
+
+        function carregarPergunta() {
+
+            const pergunta = perguntas[perguntaAtual];
+
+            elementoNumeroPergunta.textContent =
+                perguntaAtual + 1;
+
+            elementoPergunta.textContent =
+                pergunta.pergunta;
+
+            elementoAlternativas.innerHTML = "";
+
+
+            pergunta.alternativas.forEach(
+                (alternativa, indice) => {
+
+                    const botao =
+                        document.createElement("button");
+
+                    botao.type = "button";
+
+                    botao.textContent = alternativa;
+
+
+                    botao.addEventListener(
+                        "click",
+                        () => verificarResposta(indice)
+                    );
+
+
+                    elementoAlternativas.appendChild(
+                        botao
+                    );
+
+                }
+            );
+        }
+
+
+        function verificarResposta(indiceEscolhido) {
+
+            const pergunta =
+                perguntas[perguntaAtual];
+
+
+            if (
+                indiceEscolhido === pergunta.resposta
+            ) {
+
+                pontuacao++;
+
+            }
+
+
+            perguntaAtual++;
+
+
+            if (
+                perguntaAtual < perguntas.length
+            ) {
+
+                carregarPergunta();
+
+            } else {
+
+                mostrarResultado();
+
+            }
+
+        }
+
+
+        function mostrarResultado() {
+
+            elementoPergunta.style.display =
+                "none";
+
+            elementoAlternativas.style.display =
+                "none";
+
+            contador.style.display =
+                "none";
+
+
+            elementoResultado.style.display =
+                "block";
+
+
+            const porcentagem =
+                Math.round(
+                    (pontuacao / perguntas.length) * 100
+                );
+
+
+            let mensagem;
+
+
+            if (porcentagem === 100) {
+
+                mensagem =
+                    "Excelente! Você acertou todas as perguntas! 🏆";
+
+            } else if (porcentagem >= 70) {
+
+                mensagem =
+                    "Muito bem! Você demonstrou bons conhecimentos sobre saúde! 👏";
+
+            } else if (porcentagem >= 50) {
+
+                mensagem =
+                    "Bom trabalho! Continue aprendendo sobre saúde. 💚";
+
+            } else {
+
+                mensagem =
+                    "Continue estudando! Conhecimento também é uma forma de cuidar da saúde. 📚";
+
+            }
+
+
+            elementoTextoResultado.innerHTML = `
+                ${mensagem}
+
+                <br><br>
+
+                Você acertou
+                <strong>${pontuacao}</strong>
+                de
+                <strong>${perguntas.length}</strong>
+                perguntas.
+
+                <br><br>
+
+                Aproveitamento:
+                <strong>${porcentagem}%</strong>
+            `;
+
+        }
+
+
+        function reiniciarQuiz() {
+
+            perguntaAtual = 0;
+
+            pontuacao = 0;
+
+
+            elementoPergunta.style.display =
+                "block";
+
+            elementoAlternativas.style.display =
+                "flex";
+
+            contador.style.display =
+                "block";
+
+
+            elementoResultado.style.display =
+                "none";
+
+
+            carregarPergunta();
+
+        }
+
+
+        botaoReiniciar.addEventListener(
+            "click",
+            reiniciarQuiz
+        );
+
+
+        carregarPergunta();
+
+    </script>
 
 </body>
-
-</html>
-
-
-        </section>
-
-
-        <!-- RODAPÉ -->
-
-        <footer class="rodape">
-
-            <span>
-                💙
-            </span>
-
-            <p>
-                Cuidar da saúde é também cuidar da comunidade.
-            </p>
-
-        </footer>
-
-    </main>
-
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
-ública</title>
-</head>
-
-<body>
-
-    <div class="fundo-blur blur-1"></div>
-    <div class="fundo-blur blur-2"></div>
-
-    <main class="caixa-principal">
-
-        <!-- CABEÇALHO -->
-
-        <header class="cabecalho">
-
-            <div class="icone-principal">
-                🏥
-            </div>
-
-            <span class="tag">
-                SAÚDE EM FOCO
-            </span>
-
-            <h1>
-                Você entende de
-                <span>Saúde Pública?</span>
-            </h1>
-
-            <p>
-                Teste seus conhecimentos sobre prevenção,
-                vacinação, SUS, saneamento e cuidados que
-                ajudam a construir uma sociedade mais saudável.
-            </p>
-
-        </header>
-
-
-        <!-- QUIZ -->
-
-        <section
-            class="caixa-jogo"
-            aria-label="Quiz de saúde pública"
-        >
-
-            <div class="topo-quiz">
-
-                <div class="contador-pergunta"></div>
-
-                <div class="porcentagem">
-                    <span id="porcentagem">0%</span>
-                </div>
-
-            </div>
-
-
-            <div class="barra-progresso">
-
-                <div
-                    class="progresso"
-                    id="progresso"
-                ></div>
-
-            </div>
-
-
-            <div class="caixa-perguntas"></div>
-
-            <div class="caixa-alternativas"></div>
-
-
-            <!-- RESULTADO -->
-
-            <div
-                class="caixa-resultado"
-                aria-live="polite"
-            >
-
-                <div class="icone-resultado">
-                    🌎
-                </div>
-
-                <h2>
-                    Seu resultado
-                </h2>
-
-                <p class="texto-resultado"></p>
-
-            </div>
-
-        </section>
-
-
-        <!-- RODAPÉ -->
-
-        <footer class="rodape">
-
-            <span>
-                💙
-            </span>
-
-            <p>
-                Cuidar da saúde é também cuidar da comunidade.
-            </p>
-
-        </footer>
-
-    </main>
-
-
-    <script src="script.js"></script>
-
-</body>
-
 </html>
