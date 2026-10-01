@@ -1,512 +1,697 @@
-const caixaPrincipal =
-    document.querySelector(".caixa-principal");
-
-const caixaPerguntas =
-    document.querySelector(".caixa-perguntas");
-
-const caixaAlternativas =
-    document.querySelector(".caixa-alternativas");
-
-const caixaResultado =
-    document.querySelector(".caixa-resultado");
-
-const textoResultado =
-    document.querySelector(".texto-resultado");
-
-
-// ==========================================
-// PERGUNTAS SOBRE SAÚDE PÚBLICA
-// ==========================================
+/* =========================================
+   PERGUNTAS DO QUIZ
+========================================= */
 
 const perguntas = [
 
     {
-        enunciado:
-            "Por que a saúde pública é importante para a sociedade?",
+        pergunta:
+            "Quais hábitos ajudam a manter uma boa saúde?",
 
         alternativas: [
+            "Praticar atividade física",
+            "Fumar regularmente",
+            "Ter uma alimentação equilibrada",
+            "Dormir apenas 2 horas por noite"
+        ],
 
-            {
-                texto:
-                    "Porque busca garantir acesso à saúde e melhorar a qualidade de vida da população.",
+        corretas: [0, 2],
 
-                afirmacao:
-                    "Você entende que a saúde pública tem um papel fundamental na promoção do bem-estar e na garantia de cuidados de saúde para a população."
-            },
-
-            {
-                texto:
-                    "Porque atua somente no tratamento de pessoas que já estão doentes.",
-
-                afirmacao:
-                    "Você reconhece a importância do tratamento, mas a saúde pública também trabalha com prevenção, vacinação, educação em saúde e promoção da qualidade de vida."
-            }
-
-        ]
+        explicacao:
+            "A prática de atividade física e uma alimentação equilibrada são hábitos importantes para a manutenção da saúde."
     },
 
 
     {
-        enunciado:
-            "Qual é uma das principais funções do Sistema Único de Saúde (SUS)?",
+        pergunta:
+            "Quais atitudes ajudam na prevenção de doenças?",
 
         alternativas: [
+            "Lavar as mãos corretamente",
+            "Manter as vacinas em dia",
+            "Evitar beber água",
+            "Nunca procurar atendimento médico"
+        ],
 
-            {
-                texto:
-                    "Oferecer serviços de saúde à população, incluindo prevenção, atendimento e tratamento.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você reconhece a importância do SUS e entende que o sistema atua em diferentes áreas da saúde, desde a prevenção até o tratamento."
-            },
-
-            {
-                texto:
-                    "Atender somente pessoas que não possuem condições de pagar por um serviço particular.",
-
-                afirmacao:
-                    "Você percebe a importância do atendimento gratuito, mas o SUS é um sistema público de saúde que atende a população de forma ampla."
-            }
-
-        ]
+        explicacao:
+            "A higiene das mãos ajuda a reduzir a transmissão de microrganismos, enquanto a vacinação ajuda a prevenir diversas doenças."
     },
 
 
     {
-        enunciado:
-            "Por que a vacinação é importante para a saúde pública?",
+        pergunta:
+            "Quais alimentos podem fazer parte de uma alimentação saudável?",
 
         alternativas: [
+            "Frutas",
+            "Verduras e legumes",
+            "Refrigerantes em excesso",
+            "Doces em todas as refeições"
+        ],
 
-            {
-                texto:
-                    "Porque ajuda a prevenir doenças e reduz a circulação de alguns agentes infecciosos na população.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você entende que a vacinação protege indivíduos e também contribui para a proteção coletiva."
-            },
-
-            {
-                texto:
-                    "Porque serve apenas para proteger a pessoa que recebe a vacina.",
-
-                afirmacao:
-                    "Você reconhece a proteção individual proporcionada pelas vacinas, mas elas também possuem grande importância para a saúde coletiva."
-            }
-
-        ]
+        explicacao:
+            "Frutas, verduras e legumes fornecem diferentes nutrientes importantes para o organismo e podem fazer parte de uma alimentação equilibrada."
     },
 
 
     {
-        enunciado:
-            "Como o saneamento básico contribui para a saúde pública?",
+        pergunta:
+            "Quais atitudes podem ajudar na qualidade do sono?",
 
         alternativas: [
+            "Manter horários regulares para dormir",
+            "Criar um ambiente tranquilo para dormir",
+            "Tomar muito café antes de dormir",
+            "Usar telas durante toda a madrugada"
+        ],
 
-            {
-                texto:
-                    "Por meio do acesso à água tratada, coleta de esgoto, manejo de resíduos e outras condições adequadas.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você reconhece que infraestrutura e saneamento são fundamentais para prevenir doenças e melhorar as condições de vida."
-            },
-
-            {
-                texto:
-                    "Principalmente deixando as cidades mais bonitas e organizadas.",
-
-                afirmacao:
-                    "Você percebe a importância da organização urbana, mas o saneamento possui também uma função essencial na prevenção de doenças."
-            }
-
-        ]
+        explicacao:
+            "Ter horários regulares e um ambiente adequado pode favorecer o sono. O excesso de cafeína e o uso prolongado de telas podem atrapalhar o descanso."
     },
 
 
     {
-        enunciado:
-            "Qual atitude ajuda a prevenir doenças na comunidade?",
+        pergunta:
+            "Por que a água é importante para o organismo?",
 
         alternativas: [
+            "Ajuda na hidratação",
+            "Participa de várias funções do organismo",
+            "Substitui completamente todos os alimentos",
+            "Impede qualquer doença"
+        ],
 
-            {
-                texto:
-                    "Manter hábitos de higiene, vacinação adequada e procurar atendimento quando necessário.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você entende que atitudes individuais podem contribuir para a prevenção de doenças e para a proteção de toda a comunidade."
-            },
-
-            {
-                texto:
-                    "Procurar um serviço de saúde somente quando os sintomas estiverem muito graves.",
-
-                afirmacao:
-                    "Você reconhece a importância do atendimento, mas a prevenção e a procura adequada por orientação podem ajudar a evitar complicações."
-            }
-
-        ]
+        explicacao:
+            "A água é fundamental para a hidratação e participa de diversas funções do organismo. Porém, não substitui os alimentos e não impede todas as doenças."
     },
 
 
     {
-        enunciado:
-            "Por que a atenção primária à saúde é importante?",
+        pergunta:
+            "Quais atividades podem contribuir para uma vida mais ativa?",
 
         alternativas: [
+            "Caminhar",
+            "Andar de bicicleta",
+            "Passar o dia inteiro sentado",
+            "Evitar qualquer movimento"
+        ],
 
-            {
-                texto:
-                    "Porque ajuda na prevenção, no acompanhamento da população e no cuidado próximo da comunidade.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você compreende que a atenção primária é essencial para prevenir problemas, acompanhar pacientes e promover saúde."
-            },
-
-            {
-                texto:
-                    "Porque sua principal função é encaminhar todas as pessoas para hospitais.",
-
-                afirmacao:
-                    "Você reconhece a importância dos encaminhamentos, mas a atenção primária também resolve diversos problemas de saúde e trabalha com prevenção."
-            }
-
-        ]
+        explicacao:
+            "Caminhar e andar de bicicleta são exemplos de atividades físicas que podem contribuir para uma rotina mais ativa."
     },
 
 
     {
-        enunciado:
-            "Qual é a importância da educação em saúde?",
+        pergunta:
+            "Quais profissionais participam dos cuidados com a saúde?",
 
         alternativas: [
+            "Médico",
+            "Dentista",
+            "Somente pessoas sem formação",
+            "Nenhum profissional"
+        ],
 
-            {
-                texto:
-                    "Ajudar as pessoas a conhecer formas de prevenção e tomar decisões mais conscientes sobre sua saúde.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você reconhece que informação e educação podem ajudar a população a prevenir doenças e cuidar melhor da própria saúde."
-            },
-
-            {
-                texto:
-                    "Informar as pessoas somente quando ocorre uma emergência de saúde.",
-
-                afirmacao:
-                    "Você reconhece a importância da informação em situações de emergência, mas a educação em saúde deve acontecer continuamente."
-            }
-
-        ]
+        explicacao:
+            "Médicos e dentistas são profissionais de saúde, com diferentes áreas de atuação e funções no cuidado das pessoas."
     },
 
 
     {
-        enunciado:
-            "O que a população pode fazer para contribuir com a saúde pública?",
+        pergunta:
+            "Quais atitudes ajudam a cuidar da saúde bucal?",
 
         alternativas: [
+            "Escovar os dentes regularmente",
+            "Usar fio dental",
+            "Nunca escovar os dentes",
+            "Consumir açúcar sem nenhum cuidado"
+        ],
 
-            {
-                texto:
-                    "Adotar atitudes preventivas, cuidar do ambiente, manter a vacinação adequada e utilizar os serviços de saúde de forma consciente.",
+        corretas: [0, 1],
 
-                afirmacao:
-                    "Você entende que a saúde pública depende não apenas do governo e dos profissionais, mas também da participação da população."
-            },
+        explicacao:
+            "A escovação e o uso do fio dental são importantes para a higiene bucal. Consultas com o dentista também fazem parte dos cuidados."
+    },
 
-            {
-                texto:
-                    "Deixar todas as questões relacionadas à saúde somente para os governos e profissionais.",
 
-                afirmacao:
-                    "Você reconhece o papel dos governos e profissionais, mas a participação da população também é fundamental para construir comunidades mais saudáveis."
-            }
+    {
+        pergunta:
+            "Quais nutrientes são importantes para o funcionamento do organismo?",
 
-        ]
+        alternativas: [
+            "Vitaminas",
+            "Proteínas",
+            "Somente açúcar",
+            "Somente refrigerante"
+        ],
+
+        corretas: [0, 1],
+
+        explicacao:
+            "Vitaminas e proteínas desempenham funções importantes no organismo. Uma alimentação variada ajuda a fornecer diferentes nutrientes."
+    },
+
+
+    {
+        pergunta:
+            "Quais atitudes podem contribuir para uma vida saudável?",
+
+        alternativas: [
+            "Ter uma alimentação equilibrada",
+            "Praticar atividades físicas",
+            "Fumar diariamente",
+            "Dormir sempre muito pouco"
+        ],
+
+        corretas: [0, 1],
+
+        explicacao:
+            "Uma alimentação equilibrada e a prática regular de atividades físicas podem contribuir para a saúde. O tabagismo e a privação frequente de sono podem prejudicar a saúde."
     }
 
 ];
 
 
-// ==========================================
-// VARIÁVEIS
-// ==========================================
+/* =========================================
+   ELEMENTOS DA PÁGINA
+========================================= */
 
-let atual = 0;
+const questionElement =
+    document.getElementById("question");
 
-let historiaFinal = "";
+const answersElement =
+    document.getElementById("answers");
 
+const currentQuestionElement =
+    document.getElementById("current-question");
 
-// ==========================================
-// MOSTRAR PERGUNTA
-// ==========================================
+const totalQuestionsElement =
+    document.getElementById("total-questions");
 
-function mostraPergunta() {
+const progressBar =
+    document.getElementById("progress-bar");
 
-    if (atual >= perguntas.length) {
+const explanation =
+    document.getElementById("explanation");
 
-        mostraResultado();
+const explanationIcon =
+    document.getElementById("explanation-icon");
 
-        return;
-    }
+const explanationTitle =
+    document.getElementById("explanation-title");
 
-    const perguntaAtual =
-        perguntas[atual];
+const explanationText =
+    document.getElementById("explanation-text");
 
+const nextButton =
+    document.getElementById("next-button");
 
-    // Pergunta
-    caixaPerguntas.textContent =
-        perguntaAtual.enunciado;
+const result =
+    document.getElementById("result");
 
+const finalScore =
+    document.getElementById("final-score");
 
-    // Limpa alternativas anteriores
-    caixaAlternativas.innerHTML = "";
+const percentage =
+    document.getElementById("percentage");
 
+const resultMessage =
+    document.getElementById("result-message");
 
-    // Atualiza contador
-    atualizarContador();
+const restartButton =
+    document.getElementById("restart-button");
 
 
-    // Mostra alternativas
-    mostraAlternativas();
-}
+/* =========================================
+   ESTADO DO QUIZ
+========================================= */
 
+let perguntaAtual = 0;
 
-// ==========================================
-// CONTADOR
-// ==========================================
+let pontuacao = 0;
 
-function atualizarContador() {
+let respondeu = false;
 
-    let contador =
-        document.querySelector(
-            ".contador-pergunta"
-        );
 
+/* =========================================
+   TOTAL DE PERGUNTAS
+========================================= */
 
-    if (!contador) {
+totalQuestionsElement.textContent =
+    perguntas.length;
 
-        contador =
-            document.createElement("div");
 
+/* =========================================
+   CARREGAR PERGUNTA
+========================================= */
 
-        contador.classList.add(
-            "contador-pergunta"
-        );
+function carregarPergunta() {
 
+    respondeu = false;
 
-        caixaPerguntas.parentNode.insertBefore(
-            contador,
-            caixaPerguntas
-        );
-    }
+    const pergunta =
+        perguntas[perguntaAtual];
 
 
-    contador.textContent =
-        `PERGUNTA ${atual + 1} DE ${perguntas.length}`;
-}
+    /* Número */
 
+    currentQuestionElement.textContent =
+        perguntaAtual + 1;
 
-// ==========================================
-// MOSTRAR ALTERNATIVAS
-// ==========================================
 
-function mostraAlternativas() {
+    /* Barra de progresso */
 
-    const perguntaAtual =
-        perguntas[atual];
+    const progresso =
+        ((perguntaAtual + 1) / perguntas.length) * 100;
 
+    progressBar.style.width =
+        `${progresso}%`;
 
-    for (
-        const alternativa
-        of perguntaAtual.alternativas
-    ) {
 
-        const botao =
-            document.createElement("button");
+    /* Pergunta */
 
+    questionElement.textContent =
+        pergunta.pergunta;
 
-        botao.textContent =
-            alternativa.texto;
 
+    /* Limpar alternativas */
 
-        botao.type = "button";
+    answersElement.innerHTML = "";
 
 
-        botao.addEventListener(
-            "click",
-            function () {
+    /* Esconder explicação */
 
-                respostaSelecionada(
-                    alternativa
-                );
-
-            }
-        );
-
-
-        caixaAlternativas.appendChild(
-            botao
-        );
-    }
-}
-
-
-// ==========================================
-// RESPOSTA
-// ==========================================
-
-function respostaSelecionada(
-    opcaoSelecionada
-) {
-
-    historiaFinal +=
-        opcaoSelecionada.afirmacao + " ";
-
-
-    atual++;
-
-
-    mostraPergunta();
-}
-
-
-// ==========================================
-// MOSTRAR RESULTADO
-// ==========================================
-
-function mostraResultado() {
-
-    const contador =
-        document.querySelector(
-            ".contador-pergunta"
-        );
-
-
-    if (contador) {
-
-        contador.style.display =
-            "none";
-    }
-
-
-    caixaPerguntas.textContent =
-        "🏥 Seu resultado sobre Saúde Pública";
-
-
-    textoResultado.innerHTML = `
-
-        <p>
-            ${historiaFinal}
-        </p>
-
-        <p style="margin-top: 20px;">
-            <strong>
-                🌎 Saúde pública é responsabilidade de todos!
-            </strong>
-        </p>
-
-        <p style="margin-top: 15px;">
-            A prevenção de doenças, a vacinação, o saneamento
-            básico, a educação em saúde e o acesso aos serviços
-            de saúde são fundamentais para melhorar a qualidade
-            de vida da população.
-        </p>
-
-        <p style="margin-top: 15px; font-size: 14px;">
-            Este quiz possui finalidade educativa e não substitui
-            orientações de profissionais de saúde.
-        </p>
-
-    `;
-
-
-    caixaResultado.style.display =
-        "block";
-
-
-    caixaAlternativas.innerHTML = "";
-
-
-    criarBotaoReiniciar();
-}
-
-
-// ==========================================
-// BOTÃO REINICIAR
-// ==========================================
-
-function criarBotaoReiniciar() {
-
-    if (
-        document.querySelector(
-            ".botao-reiniciar"
-        )
-    ) {
-
-        return;
-    }
-
-
-    const botao =
-        document.createElement("button");
-
-
-    botao.textContent =
-        "🔄 Fazer o quiz novamente";
-
-
-    botao.classList.add(
-        "botao-reiniciar"
-    );
-
-
-    botao.type = "button";
-
-
-    botao.addEventListener(
-        "click",
-        reiniciarQuiz
-    );
-
-
-    caixaAlternativas.appendChild(
-        botao
-    );
-}
-
-
-// ==========================================
-// REINICIAR
-// ==========================================
-
-function reiniciarQuiz() {
-
-    atual = 0;
-
-    historiaFinal = "";
-
-
-    caixaResultado.style.display =
+    explanation.style.display =
         "none";
 
 
-    textoResultado.textContent =
-        "";
+    explanation.className =
+        "explanation";
 
 
-    caixaAlternativas.innerHTML =
-        "";
+    /* Botão */
+
+    nextButton.style.display =
+        "none";
 
 
-    mostraPergunta();
+    /*
+    Cria as alternativas
+    */
+
+    pergunta.alternativas.forEach(
+        (alternativa, indice) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            /*
+            Letras A, B, C, D
+            */
+
+            const letter =
+                document.createElement("span");
+
+
+            letter.className =
+                "answer-letter";
+
+
+            letter.textContent =
+                String.fromCharCode(
+                    65 + indice
+                );
+
+
+            /*
+            Texto da alternativa
+            */
+
+            const text =
+                document.createElement("span");
+
+
+            text.textContent =
+                alternativa;
+
+
+            button.appendChild(letter);
+
+            button.appendChild(text);
+
+
+            /*
+            Clique
+            */
+
+            button.addEventListener(
+                "click",
+                () => verificarResposta(
+                    indice,
+                    button
+                )
+            );
+
+
+            answersElement.appendChild(
+                button
+            );
+
+        }
+    );
+
 }
 
 
-// ==========================================
-// INICIAR QUIZ
-// ==========================================
+/* =========================================
+   VERIFICAR RESPOSTA
+========================================= */
 
-mostraPergunta();
+function verificarResposta(
+    indiceEscolhido,
+    botaoEscolhido
+) {
+
+    if (respondeu) {
+        return;
+    }
+
+
+    respondeu = true;
+
+
+    const pergunta =
+        perguntas[perguntaAtual];
+
+
+    const acertou =
+        pergunta.corretas.includes(
+            indiceEscolhido
+        );
+
+
+    /*
+    Se acertou, soma um ponto.
+    */
+
+    if (acertou) {
+
+        pontuacao++;
+
+    }
+
+
+    /*
+    Desabilita todos os botões.
+    */
+
+    const botoes =
+        answersElement.querySelectorAll(
+            ".answer"
+        );
+
+
+    botoes.forEach(
+        (botao, indice) => {
+
+            botao.disabled = true;
+
+
+            /*
+            Mostra as duas respostas corretas.
+            */
+
+            if (
+                pergunta.corretas.includes(indice)
+            ) {
+
+                botao.classList.add(
+                    "correct"
+                );
+
+            }
+
+
+            /*
+            Mostra a resposta errada
+            escolhida pelo usuário.
+            */
+
+            if (
+                indice === indiceEscolhido &&
+                !acertou
+            ) {
+
+                botao.classList.add(
+                    "wrong"
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+    Configura explicação.
+    */
+
+    if (acertou) {
+
+        explanation.classList.add(
+            "correct"
+        );
+
+        explanationIcon.textContent =
+            "✓";
+
+        explanationTitle.textContent =
+            "Resposta correta!";
+
+    } else {
+
+        explanation.classList.add(
+            "wrong"
+        );
+
+        explanationIcon.textContent =
+            "×";
+
+        explanationTitle.textContent =
+            "Resposta incorreta!";
+
+    }
+
+
+    explanationText.textContent =
+        pergunta.explicacao;
+
+
+    explanation.style.display =
+        "flex";
+
+
+    /*
+    Botão de próxima pergunta.
+    */
+
+    nextButton.style.display =
+        "block";
+
+
+    if (
+        perguntaAtual ===
+        perguntas.length - 1
+    ) {
+
+        nextButton.innerHTML =
+            `Ver resultado <span>🏆</span>`;
+
+    } else {
+
+        nextButton.innerHTML =
+            `Próxima pergunta <span>→</span>`;
+
+    }
+
+}
+
+
+/* =========================================
+   PRÓXIMA PERGUNTA
+========================================= */
+
+nextButton.addEventListener(
+    "click",
+    () => {
+
+        perguntaAtual++;
+
+
+        if (
+            perguntaAtual <
+            perguntas.length
+        ) {
+
+            carregarPergunta();
+
+        } else {
+
+            mostrarResultado();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+function mostrarResultado() {
+
+    document.querySelector(
+        ".quiz-top"
+    ).style.display = "none";
+
+
+    document.querySelector(
+        ".question-area"
+    ).style.display = "none";
+
+
+    answersElement.style.display =
+        "none";
+
+
+    explanation.style.display =
+        "none";
+
+
+    nextButton.style.display =
+        "none";
+
+
+    result.style.display =
+        "block";
+
+
+    /*
+    Pontuação
+    */
+
+    finalScore.textContent =
+        pontuacao;
+
+
+    /*
+    Porcentagem
+    */
+
+    const porcentagem =
+        Math.round(
+            (pontuacao / perguntas.length) * 100
+        );
+
+
+    percentage.textContent =
+        `${porcentagem}%`;
+
+
+    /*
+    Mensagem
+    */
+
+    if (porcentagem === 100) {
+
+        resultMessage.textContent =
+            "Incrível! Você acertou todas as perguntas e demonstrou excelentes conhecimentos sobre saúde. 🏆";
+
+    } else if (porcentagem >= 70) {
+
+        resultMessage.textContent =
+            "Muito bem! Você demonstrou bons conhecimentos sobre saúde. Continue aprendendo! 💚";
+
+    } else if (porcentagem >= 50) {
+
+        resultMessage.textContent =
+            "Bom trabalho! Você já conhece vários conceitos importantes sobre saúde. 📚";
+
+    } else {
+
+        resultMessage.textContent =
+            "Continue estudando! Aprender sobre saúde é uma ótima forma de cuidar de si. 🌱";
+
+    }
+
+}
+
+
+/* =========================================
+   REINICIAR
+========================================= */
+
+restartButton.addEventListener(
+    "click",
+    () => {
+
+        perguntaAtual = 0;
+
+        pontuacao = 0;
+
+        respondeu = false;
+
+
+        document.querySelector(
+            ".quiz-top"
+        ).style.display = "flex";
+
+
+        document.querySelector(
+            ".question-area"
+        ).style.display = "block";
+
+
+        answersElement.style.display =
+            "flex";
+
+
+        result.style.display =
+            "none";
+
+
+        carregarPergunta();
+
+    }
+);
+
+
+/* =========================================
+   INICIAR
+========================================= */
+
+carregarPergunta();

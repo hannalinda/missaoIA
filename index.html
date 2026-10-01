@@ -5,96 +5,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Quiz sobre Saúde</title>
+    <meta
+        name="description"
+        content="Quiz educativo sobre saúde e hábitos saudáveis."
+    >
+
+    <title>Viva Saúde | Quiz</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="caixa-principal">
+    <main class="quiz-container">
 
-        <header class="cabecalho">
+        <!-- CABEÇALHO -->
 
-            <span class="tag">QUIZ DE SAÚDE</span>
+        <header class="header">
 
-            <h1>Você conhece sobre saúde?</h1>
+            <div class="header-icon">
+                ❤️
+            </div>
+
+            <span class="tag">
+                QUIZ DE SAÚDE
+            </span>
+
+            <h1>
+                Quanto você sabe<br>
+                sobre <span>saúde?</span>
+            </h1>
 
             <p>
-                Responda às perguntas e descubra o quanto
-                você sabe sobre hábitos saudáveis e cuidados
-                com a saúde.
+                Teste seus conhecimentos sobre alimentação,
+                exercícios, sono e cuidados com o corpo.
             </p>
 
         </header>
 
 
-        <section class="caixa-jogo">
+        <!-- ÁREA DO QUIZ -->
 
-            <div class="contador-pergunta">
-                Pergunta
-                <span id="numero-pergunta">1</span>
-                de
-                <span id="total-perguntas">10</span>
+        <section class="quiz-content">
+
+            <!-- TOPO DA PERGUNTA -->
+
+            <div class="quiz-top">
+
+                <div class="question-counter">
+                    <span id="current-question">1</span>
+                    /
+                    <span id="total-questions">10</span>
+                </div>
+
+                <div class="progress-container">
+                    <div
+                        class="progress-bar"
+                        id="progress-bar"
+                    ></div>
+                </div>
+
             </div>
 
 
-            <div class="caixa-perguntas" id="pergunta">
-                Carregando pergunta...
-            </div>
+            <!-- PERGUNTA -->
 
+            <div class="question-area">
 
-            <div class="caixa-alternativas" id="alternativas">
-            </div>
+                <span class="question-label">
+                    PERGUNTA
+                </span>
 
-
-            <!-- EXPLICAÇÃO DA RESPOSTA -->
-
-            <div
-                class="caixa-explicacao"
-                id="explicacao"
-                style="display: none;"
-            >
-
-                <h2 id="titulo-explicacao">
-                    Resultado
+                <h2 id="question">
+                    Carregando pergunta...
                 </h2>
 
-                <p id="texto-explicacao">
+                <p class="question-hint">
+                    Escolha uma das alternativas abaixo.
                 </p>
 
-                <button
-                    class="botao-reiniciar"
-                    id="botao-proxima"
-                    type="button"
+            </div>
+
+
+            <!-- ALTERNATIVAS -->
+
+            <div
+                class="answers"
+                id="answers"
+            >
+            </div>
+
+
+            <!-- EXPLICAÇÃO -->
+
+            <div
+                class="explanation"
+                id="explanation"
+            >
+
+                <div
+                    class="explanation-icon"
+                    id="explanation-icon"
                 >
-                    Próxima pergunta
-                </button>
+                    ✓
+                </div>
+
+                <div class="explanation-content">
+
+                    <h3 id="explanation-title">
+                        Resposta correta!
+                    </h3>
+
+                    <p id="explanation-text">
+                    </p>
+
+                </div>
 
             </div>
+
+
+            <!-- BOTÃO PRÓXIMA -->
+
+            <button
+                class="next-button"
+                id="next-button"
+                type="button"
+            >
+                Próxima pergunta
+                <span>→</span>
+            </button>
 
 
             <!-- RESULTADO FINAL -->
 
             <div
-                class="caixa-resultado"
-                id="resultado"
+                class="result"
+                id="result"
             >
 
-                <h2>Quiz finalizado! 🎉</h2>
+                <div class="result-icon">
+                    🏆
+                </div>
 
-                <p
-                    class="texto-resultado"
-                    id="texto-resultado"
-                >
+                <span class="result-label">
+                    QUIZ FINALIZADO
+                </span>
+
+                <h2>
+                    Parabéns!
+                </h2>
+
+                <p id="result-message">
+                    Você terminou o quiz.
                 </p>
 
+                <div class="score">
+
+                    <strong id="final-score">
+                        0
+                    </strong>
+
+                    <span>
+                        / 10
+                    </span>
+
+                </div>
+
+                <p class="score-text">
+                    perguntas respondidas corretamente
+                </p>
+
+                <div class="percentage">
+                    <span id="percentage">
+                        0%
+                    </span>
+                    de aproveitamento
+                </div>
+
                 <button
-                    class="botao-reiniciar"
-                    id="botao-reiniciar"
+                    class="restart-button"
+                    id="restart-button"
                     type="button"
                 >
-                    Jogar novamente
+                    ↻ Jogar novamente
                 </button>
 
             </div>
@@ -102,619 +195,22 @@
         </section>
 
 
-        <footer class="rodape">
+        <!-- RODAPÉ -->
 
-            <p>
-                Cuide da sua saúde todos os dias! 💚
-            </p>
+        <footer class="footer">
+
+            <span>
+                💚
+            </span>
+
+            Conhecimento também é uma forma de cuidar da saúde.
 
         </footer>
 
     </main>
 
 
-    <script>
-
-        /*
-        ==================================================
-        PERGUNTAS
-        ==================================================
-
-        Cada pergunta possui DUAS respostas corretas.
-
-        O campo "respostas" contém os índices
-        das alternativas corretas.
-
-        Exemplo:
-
-        respostas: [0, 2]
-
-        significa que as alternativas 1 e 3
-        estão corretas.
-        */
-
-
-        const perguntas = [
-
-            {
-                pergunta:
-                    "Quais hábitos ajudam a manter uma boa saúde?",
-
-                alternativas: [
-                    "Praticar atividade física",
-                    "Fumar regularmente",
-                    "Ter uma alimentação equilibrada",
-                    "Dormir apenas 2 horas por noite"
-                ],
-
-                respostas: [0, 2],
-
-                explicacao:
-                    "Praticar atividade física e manter uma alimentação equilibrada são hábitos que contribuem para a saúde. O sedentarismo, o tabagismo e a falta de sono podem prejudicar o organismo."
-            },
-
-
-            {
-                pergunta:
-                    "Quais atitudes ajudam na prevenção de doenças?",
-
-                alternativas: [
-                    "Lavar as mãos corretamente",
-                    "Manter as vacinas em dia",
-                    "Evitar beber água",
-                    "Nunca procurar atendimento médico"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Lavar as mãos ajuda a reduzir a transmissão de diversos microrganismos, enquanto a vacinação ajuda a proteger contra várias doenças."
-            },
-
-
-            {
-                pergunta:
-                    "Quais alimentos podem fazer parte de uma alimentação saudável?",
-
-                alternativas: [
-                    "Frutas",
-                    "Verduras e legumes",
-                    "Refrigerantes em excesso",
-                    "Doces em todas as refeições"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Frutas, verduras e legumes fornecem nutrientes importantes. Refrigerantes e doces podem ser consumidos ocasionalmente, mas o consumo excessivo não é recomendado."
-            },
-
-
-            {
-                pergunta:
-                    "Quais atitudes podem ajudar na qualidade do sono?",
-
-                alternativas: [
-                    "Manter horários regulares para dormir",
-                    "Criar um ambiente tranquilo para dormir",
-                    "Tomar muito café antes de dormir",
-                    "Usar telas durante toda a madrugada"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Manter horários regulares e um ambiente tranquilo pode favorecer o sono. Cafeína em excesso e uso prolongado de telas durante a noite podem atrapalhar o descanso."
-            },
-
-
-            {
-                pergunta:
-                    "Por que a água é importante para o organismo?",
-
-                alternativas: [
-                    "Ajuda na hidratação",
-                    "Participa de várias funções do organismo",
-                    "Substitui completamente todos os alimentos",
-                    "Impede qualquer doença"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "A água é fundamental para a hidratação e participa de diversas funções do organismo. Porém, ela não substitui uma alimentação adequada nem impede todas as doenças."
-            },
-
-
-            {
-                pergunta:
-                    "Quais atividades podem contribuir para uma vida mais ativa?",
-
-                alternativas: [
-                    "Caminhar",
-                    "Andar de bicicleta",
-                    "Passar o dia inteiro sentado",
-                    "Evitar qualquer movimento"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Caminhar e andar de bicicleta são exemplos de atividades físicas. Manter-se ativo regularmente pode trazer benefícios para a saúde."
-            },
-
-
-            {
-                pergunta:
-                    "Quais profissionais podem participar dos cuidados com a saúde?",
-
-                alternativas: [
-                    "Médico",
-                    "Dentista",
-                    "Somente pessoas sem formação na área",
-                    "Nenhum profissional"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Médicos e dentistas são profissionais de saúde, cada um com áreas específicas de atuação. O cuidado com a saúde pode envolver diferentes profissionais."
-            },
-
-
-            {
-                pergunta:
-                    "Quais atitudes podem ajudar a cuidar da saúde bucal?",
-
-                alternativas: [
-                    "Escovar os dentes regularmente",
-                    "Usar fio dental",
-                    "Nunca escovar os dentes",
-                    "Consumir açúcar sem nenhum cuidado"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Escovar os dentes e usar fio dental ajudam na higiene bucal. Também é importante realizar acompanhamento com um dentista."
-            },
-
-
-            {
-                pergunta:
-                    "Quais nutrientes são importantes para o funcionamento do organismo?",
-
-                alternativas: [
-                    "Vitaminas",
-                    "Proteínas",
-                    "Somente açúcar",
-                    "Somente refrigerante"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Vitaminas e proteínas exercem funções importantes no organismo. Uma alimentação variada ajuda a fornecer diferentes nutrientes necessários ao corpo."
-            },
-
-
-            {
-                pergunta:
-                    "Quais atitudes podem contribuir para uma vida saudável?",
-
-                alternativas: [
-                    "Ter uma alimentação equilibrada",
-                    "Praticar atividades físicas",
-                    "Fumar diariamente",
-                    "Dormir sempre muito pouco"
-                ],
-
-                respostas: [0, 1],
-
-                explicacao:
-                    "Uma alimentação equilibrada e a prática regular de atividades físicas podem contribuir para a saúde. O tabagismo e a privação frequente de sono podem prejudicar a saúde."
-            }
-
-        ];
-
-
-        /*
-        ==================================================
-        VARIÁVEIS
-        ==================================================
-        */
-
-        let perguntaAtual = 0;
-
-        let pontuacao = 0;
-
-
-        const elementoPergunta =
-            document.getElementById("pergunta");
-
-        const elementoAlternativas =
-            document.getElementById("alternativas");
-
-        const elementoNumeroPergunta =
-            document.getElementById("numero-pergunta");
-
-        const elementoTotalPerguntas =
-            document.getElementById("total-perguntas");
-
-        const elementoExplicacao =
-            document.getElementById("explicacao");
-
-        const tituloExplicacao =
-            document.getElementById("titulo-explicacao");
-
-        const textoExplicacao =
-            document.getElementById("texto-explicacao");
-
-        const botaoProxima =
-            document.getElementById("botao-proxima");
-
-        const elementoResultado =
-            document.getElementById("resultado");
-
-        const elementoTextoResultado =
-            document.getElementById("texto-resultado");
-
-        const botaoReiniciar =
-            document.getElementById("botao-reiniciar");
-
-        const contador =
-            document.querySelector(".contador-pergunta");
-
-
-        elementoTotalPerguntas.textContent =
-            perguntas.length;
-
-
-        /*
-        ==================================================
-        CARREGAR PERGUNTA
-        ==================================================
-        */
-
-        function carregarPergunta() {
-
-            const pergunta =
-                perguntas[perguntaAtual];
-
-
-            elementoNumeroPergunta.textContent =
-                perguntaAtual + 1;
-
-
-            elementoPergunta.textContent =
-                pergunta.pergunta;
-
-
-            elementoAlternativas.innerHTML = "";
-
-
-            elementoExplicacao.style.display =
-                "none";
-
-
-            elementoAlternativas.style.display =
-                "flex";
-
-
-            pergunta.alternativas.forEach(
-                (alternativa, indice) => {
-
-                    const botao =
-                        document.createElement("button");
-
-
-                    botao.type = "button";
-
-
-                    botao.textContent =
-                        alternativa;
-
-
-                    botao.addEventListener(
-                        "click",
-                        () => verificarResposta(indice)
-                    );
-
-
-                    elementoAlternativas.appendChild(
-                        botao
-                    );
-
-                }
-            );
-
-        }
-
-
-        /*
-        ==================================================
-        VERIFICAR RESPOSTA
-        ==================================================
-        */
-
-        function verificarResposta(indiceEscolhido) {
-
-            const pergunta =
-                perguntas[perguntaAtual];
-
-
-            const estaCorreta =
-                pergunta.respostas.includes(
-                    indiceEscolhido
-                );
-
-
-            /*
-            Se a resposta estiver entre as duas
-            respostas corretas, o jogador ganha ponto.
-            */
-
-            if (estaCorreta) {
-
-                pontuacao++;
-
-                tituloExplicacao.textContent =
-                    "✅ Resposta correta!";
-
-            } else {
-
-                tituloExplicacao.textContent =
-                    "❌ Resposta incorreta!";
-
-            }
-
-
-            /*
-            Desabilita todos os botões para impedir
-            que o jogador responda novamente.
-            */
-
-            const botoes =
-                elementoAlternativas.querySelectorAll(
-                    "button"
-                );
-
-
-            botoes.forEach(
-                (botao, indice) => {
-
-                    botao.disabled = true;
-
-
-                    /*
-                    Mostra visualmente quais eram
-                    as duas respostas corretas.
-                    */
-
-                    if (
-                        pergunta.respostas.includes(indice)
-                    ) {
-
-                        botao.style.background =
-                            "#dff8ed";
-
-                        botao.style.borderColor =
-                            "#22a06b";
-
-                    }
-
-
-                    /*
-                    Destaca a resposta errada escolhida.
-                    */
-
-                    if (
-                        indice === indiceEscolhido &&
-                        !estaCorreta
-                    ) {
-
-                        botao.style.background =
-                            "#ffe5e5";
-
-                        botao.style.borderColor =
-                            "#e05252";
-
-                    }
-
-                }
-            );
-
-
-            /*
-            Mostra a explicação.
-            */
-
-            textoExplicacao.textContent =
-                pergunta.explicacao;
-
-
-            elementoExplicacao.style.display =
-                "block";
-
-
-            /*
-            Altera o texto do botão na última pergunta.
-            */
-
-            if (
-                perguntaAtual === perguntas.length - 1
-            ) {
-
-                botaoProxima.textContent =
-                    "Ver resultado";
-
-            } else {
-
-                botaoProxima.textContent =
-                    "Próxima pergunta";
-
-            }
-
-        }
-
-
-        /*
-        ==================================================
-        PRÓXIMA PERGUNTA
-        ==================================================
-        */
-
-        botaoProxima.addEventListener(
-            "click",
-            () => {
-
-                perguntaAtual++;
-
-
-                if (
-                    perguntaAtual < perguntas.length
-                ) {
-
-                    carregarPergunta();
-
-                } else {
-
-                    mostrarResultado();
-
-                }
-
-            }
-        );
-
-
-        /*
-        ==================================================
-        RESULTADO FINAL
-        ==================================================
-        */
-
-        function mostrarResultado() {
-
-            elementoPergunta.style.display =
-                "none";
-
-
-            elementoAlternativas.style.display =
-                "none";
-
-
-            elementoExplicacao.style.display =
-                "none";
-
-
-            contador.style.display =
-                "none";
-
-
-            elementoResultado.style.display =
-                "block";
-
-
-            const porcentagem =
-                Math.round(
-                    (pontuacao / perguntas.length) * 100
-                );
-
-
-            let mensagem;
-
-
-            if (porcentagem === 100) {
-
-                mensagem =
-                    "🏆 Excelente! Você acertou todas as perguntas!";
-
-            } else if (porcentagem >= 70) {
-
-                mensagem =
-                    "👏 Muito bem! Você demonstrou bons conhecimentos sobre saúde.";
-
-            } else if (porcentagem >= 50) {
-
-                mensagem =
-                    "💚 Bom trabalho! Continue aprendendo sobre saúde.";
-
-            } else {
-
-                mensagem =
-                    "📚 Continue estudando! Conhecimento também é uma forma de cuidar da saúde.";
-
-            }
-
-
-            elementoTextoResultado.innerHTML = `
-
-                ${mensagem}
-
-                <br><br>
-
-                Você acertou
-                <strong>${pontuacao}</strong>
-                de
-                <strong>${perguntas.length}</strong>
-                perguntas.
-
-                <br><br>
-
-                Aproveitamento:
-                <strong>${porcentagem}%</strong>
-
-            `;
-
-        }
-
-
-        /*
-        ==================================================
-        REINICIAR
-        ==================================================
-        */
-
-        botaoReiniciar.addEventListener(
-            "click",
-            () => {
-
-                perguntaAtual = 0;
-
-                pontuacao = 0;
-
-
-                elementoResultado.style.display =
-                    "none";
-
-
-                elementoPergunta.style.display =
-                    "block";
-
-
-                elementoAlternativas.style.display =
-                    "flex";
-
-
-                contador.style.display =
-                    "block";
-
-
-                carregarPergunta();
-
-            }
-        );
-
-
-        /*
-        ==================================================
-        INICIAR QUIZ
-        ==================================================
-        */
-
-        carregarPergunta();
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
